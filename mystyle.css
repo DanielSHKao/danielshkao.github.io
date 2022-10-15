@@ -1,0 +1,28 @@
+body {
+    background-color: #ffefd5;
+  }
+  #intro {
+    display: flex;
+    column-gap: 10px;
+  }
+  
+  #intro > div {
+    border: 1px black;
+    flex: auto;
+  }
+  #photo{
+      
+    float: left;
+    max-width: 300px;
+  }
+  #content{
+    float: left;
+    max-width: 800px;
+    text-align:left;
+  }
+  a:link {
+    color: black;
+  }
+  #links{
+    max-width: 1110px;
+  }
