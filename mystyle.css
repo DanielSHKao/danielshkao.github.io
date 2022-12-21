@@ -32,10 +32,11 @@ body {
   #links{
     max-width: 1110px;
   }
-  .row {
-    display: flex;
+  #contact {
+    float: left;
+    width: 50%;
   }
-  
-  .column {
-    flex: 50%;
+  #research {
+    float: left;
+    width: 50%;
   }
