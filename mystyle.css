@@ -1,7 +1,9 @@
 html {
     margin:auto;
 }
-
+body {
+    background-color: #ffffff;
+  }
   #header{
     max-width: 1100px;
   }
