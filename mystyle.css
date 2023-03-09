@@ -5,6 +5,32 @@ html {
 body {
     background-color: #ffffff;
   }
+  #bookmark{
+    background-color: rgb(207, 204, 204);
+    border-bottom: 1px solid #555;
+    height: 80px;
+  }
+  #bookmark_research{
+    color: black;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: Sans-serif;
+    display: inline-block;
+  }
+  #bookmark_exp{
+    color: black;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: Sans-serif;
+    display: inline-block;
+  }
+  #bookmark_award{
+    color: black;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: Sans-serif;
+    display: inline-block;
+  }
   #header{
     max-width: 1100px;
   }
@@ -18,13 +44,13 @@ body {
     flex: auto;
   }
   #photo{
-      
     float: left;
-    max-width: 300px;
+    max-width: 250px;
   }
+ 
   #content{
     float: left;
-    max-width: 800px;
+    max-width: 900px;
     text-align:left;
   }
   a:link {
