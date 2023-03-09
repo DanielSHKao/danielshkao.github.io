@@ -1,7 +1,15 @@
 html {
     margin:auto;
 }
-
+.avatar {
+    margin-top: 15px;
+  vertical-align: middle;
+  border-radius: 50%;
+  
+    box-shadow: 0 0 3px 2px #555;
+    float: middle;
+    max-width: 150px;
+}
 body {
     background-color: #ffffff;
   }
