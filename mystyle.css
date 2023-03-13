@@ -1,5 +1,5 @@
 html {
-    margin: 50px auto;
+    margin: auto;
 }
 .avatar {
     margin-top: 15px;
@@ -12,6 +12,10 @@ html {
 }
 body {
     background-color: #ffffff;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+
   }
   #bookmark{
     background-color: rgb(207, 204, 204);
