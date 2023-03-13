@@ -65,6 +65,9 @@ body {
     max-width: 900px;
     text-align:left;
   }
+  #footer{
+      margin-top: 5%;
+  }
   a:link {
     color: blue;
     background-color: transparent;
