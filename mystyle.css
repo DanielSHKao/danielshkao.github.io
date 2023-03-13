@@ -62,7 +62,27 @@ body {
     text-align:left;
   }
   a:link {
-    color: black;
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: goldenrod;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:active {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
   }
   #links{
     max-width: 1110px;
