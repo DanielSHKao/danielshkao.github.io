@@ -22,6 +22,7 @@ body {
     border-bottom: 1px solid #555;
     height: 80px;
   }
+  
   #bookmark_research{
     color: black;
     padding: 14px 25px;
@@ -98,7 +99,9 @@ body {
     float: left;
     width: 50%;
   }
-  
+  #header h1{
+      font-size: 23px;
+  }
   #research {
     float: left;
     width: 50%;
