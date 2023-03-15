@@ -1,7 +1,7 @@
 html {
     margin: auto;
 }
-.avatar {
+img.avatar {
     margin-top: 15px;
   vertical-align: middle;
   border-radius: 50%;
