@@ -1,6 +1,11 @@
 html {
     margin: auto;
 }
+
+body, td, th, tr, p, a {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 15px;
+}
 img.avatar {
     margin-top: 15px;
   vertical-align: middle;
@@ -9,10 +14,14 @@ img.avatar {
     box-shadow: 0 0 7px 4px #555;
     float: middle;
 }
-div.one {
+.one {
     width: 190px;
+    height:140px;
     position: relative;
-  }
+}
+div {
+    display: block;
+}
 body {
     background-color: #ffffff;
     margin-top: 2%;
@@ -20,6 +29,14 @@ body {
     margin-right: 5%;
 
   }
+  table {
+    width: 100%;
+    border: 0px;
+    border-spacing: 0px;
+    border-collapse: separate;
+    margin-right: auto;
+    margin-left: auto;
+}
   #bookmark{
     background-color: rgb(207, 204, 204);
     border-bottom: 1px solid #555;
