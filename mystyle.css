@@ -167,19 +167,3 @@ td.bio_right {
 img.pub_img {
     width: min(190px, 100%);
   }
-  .desktop {
-    display: table-cell;
-  }
-  .phone {
-    display: none;
-  }
-  
-  /*mobile mode*/
-  @media only screen and (max-width: 480px) {
-    .desktop {
-        display: none;
-    }
-    .phone {
-        display: table-cell;
-    }
-  }
