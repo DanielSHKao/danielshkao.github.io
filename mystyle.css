@@ -126,10 +126,10 @@ td.bio_left {
     padding-right: 8px;
     width: 23%;
     max-width: 23%;
-    vertical-align: top;
+    vertical-align: middle;
 }
 td.bio_right {
     padding: min(30px,4%);
     width: 77%;
-    vertical-align: top;
+    vertical-align: middle;
 }
