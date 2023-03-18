@@ -2,9 +2,16 @@ html {
     margin: auto;
 }
 
-body, td, th, tr, p, a {
+body, td, th, tr, p, a,li {
     font-family: 'Lato', Verdana, Helvetica, sans-serif;
     font-size: 15px;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 img.avatar {
     margin-top: 0px;
