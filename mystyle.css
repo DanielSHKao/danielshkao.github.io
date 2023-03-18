@@ -229,7 +229,7 @@ td.bio_right {
 }
 
 img.pub_img {
-    width: min(190px, 100%);
+    width: max(100%,190px);
   }
 .section{
     border-top: 1.5pt dotted #555;
