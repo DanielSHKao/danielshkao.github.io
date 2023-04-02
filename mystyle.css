@@ -193,7 +193,7 @@ body {
     width: 50%;
   }
   h1{
-      font-size: 25px;
+      font-size: 27px;
   }
   #research {
     float: left;
@@ -216,15 +216,15 @@ td.pub_right {
 td.bio_left {
     padding-top: min(10px,2%);
     padding-bottom: 20px;
-    padding-left: min(30px,2%);
-    padding-right: max(30px,5%);
+    padding-left: min(45px,5%);
+    padding-right: max(40px,5%);
     width: 20%;
     max-width: 20%;
     vertical-align: middle;
 }
 td.bio_right {
-    padding: min(30px,4%);
-    width: 80%;
+    padding: min(40px,5%);
+    width: 70%;
     vertical-align: middle;
 }
 
