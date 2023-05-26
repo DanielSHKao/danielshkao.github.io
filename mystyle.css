@@ -255,6 +255,21 @@ img.pub_img {
     margin-right: auto;
     max-width: 1000px;
 }
+.news-word {
+    animation: color-animation 1.5s linear infinite;
+  }
+  
+  .news-word-1 {
+    --color-1: goldenrod;
+    --color-3: red;
+  }
+  @keyframes color-animation {
+    0%    {color: var(--color-1)}
+    49%   {color: var(--color-1)}
+    50%   {color: var(--color-3)}
+    99%   {color: var(--color-3)}
+    100%  {color: var(--color-1)}
+  }
   /*normal mode*/
 .desktop {
     display: table-cell;
