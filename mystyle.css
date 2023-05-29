@@ -103,7 +103,12 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-
+span.disable-links {
+    pointer-events: none;
+}
+a.disabled {
+    pointer-events: none;
+}
   #bookmark{
     background-color: rgb(204, 206, 207);
     border-bottom: 1px solid #555;
