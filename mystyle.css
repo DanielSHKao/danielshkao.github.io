@@ -64,10 +64,7 @@
   }
  
 
-body, td, th, tr, p, a,li {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 15px;
-}
+
 p {
     display: block;
     margin-block-start: 1em;
