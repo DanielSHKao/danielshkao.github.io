@@ -283,11 +283,3 @@ a.disabled {
         display: table-cell;
     }
   }
-  @media only screen and (max-width: 600px) {
-    .desktop {
-        display: none;
-    }
-    .phone {
-        display: table-cell;
-    }
-  }
