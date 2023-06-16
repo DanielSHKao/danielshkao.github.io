@@ -83,9 +83,6 @@ img.avatar {
     height:140px;
     position: relative;
 }
-div {
-    display: block;
-}
 td.pub_left {
     padding-top: min(20px,2%);
     padding-bottom: 10px;
@@ -254,10 +251,20 @@ a.disabled {
     99%   {color: var(--color-3)}
     100%  {color: var(--color-1)}
   }
+  .phone_img{
+    padding-left: 20%;
+    padding-right: 20%;
+    width: min(300pt,60%);
+   float: middle;
+  }
   img.profile_img_top {
+    margin-top: 0px;
     width:70%;
-    padding:0px;
-    box-shadow: 0px 8px 10px #adbcef;
+  vertical-align: middle;
+  border-radius: 50%;
+  
+    box-shadow: 0 0 7px 4px #adbcef;
+    float: middle;
   }
 /*normal mode*/
 .desktop {
@@ -269,6 +276,14 @@ a.disabled {
   
   /*mobile mode*/
   @media only screen and (max-width: 480px) {
+    .desktop {
+        display: none;
+    }
+    .phone {
+        display: table-cell;
+    }
+  }
+  @media only screen and (max-width: 600px) {
     .desktop {
         display: none;
     }
