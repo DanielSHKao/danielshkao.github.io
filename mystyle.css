@@ -252,14 +252,13 @@ a.disabled {
     100%  {color: var(--color-1)}
   }
   .phone_img{
-    padding-left: 20%;
-    padding-right: 20%;
-    width: min(300pt,60%);
+    padding-left: 25%;
+    padding-right: 25%;
+    width: min(250pt,50%);
    float: middle;
   }
-  img.profile_img_top {
+  .phone_img_style {
     margin-top: 0px;
-    width:70%;
   vertical-align: middle;
   border-radius: 50%;
   
