@@ -197,9 +197,6 @@ a.disabled {
     max-width:92%;
   }
   
-  #visitor_map{
-    width: max(8%,50px)
-  }
   a:link {
     color: blue;
     background-color: transparent;
