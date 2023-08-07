@@ -271,6 +271,9 @@ a.disabled {
     box-shadow: 0 0 7px 4px #adbcef;
     float: middle;
   }
+  .visitor_map{
+    width:max(8%,80pt)
+  }
 /*normal mode*/
 .desktop {
     display: table-cell;
