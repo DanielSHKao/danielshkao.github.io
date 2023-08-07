@@ -196,7 +196,7 @@ a.disabled {
     max-width:92%;
   }
   #clustr_map{
-    width: max(8%,45px);
+    width: 8%;
   }
   a:link {
     color: blue;
