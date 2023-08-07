@@ -272,7 +272,7 @@ a.disabled {
     float: middle;
   }
   .visitor_map{
-    width:max(8%,80pt)
+    width:max(8%,30pt)
   }
 /*normal mode*/
 .desktop {
