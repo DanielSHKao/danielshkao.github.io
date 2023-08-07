@@ -195,7 +195,11 @@ a.disabled {
     margin-right: auto;
     max-width:92%;
   }
- 
+  #clustr_map{
+    width:25%; 
+    min-width: 60px;
+    margin: 0%;
+  }
   a:link {
     color: blue;
     background-color: transparent;
