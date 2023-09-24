@@ -71,12 +71,10 @@
     margin-inline-end: 0px;
 }
 img.avatar {
-    margin-top: 0px;
-  vertical-align: middle;
   border-radius: 50%;
-  
     box-shadow: 0 0 7px 4px #adbcef;
-    float: middle;
+    margin-bottom: 10px;
+    height: 180px;
 }
 .nav_bar{
     position: fixed;
@@ -102,20 +100,27 @@ td.pub_right {
     width: 77%;
     vertical-align: top;
 }
-td.bio_left {
-    padding-top: min(10px,2%);
-    padding-bottom: 20px;
-    padding-left: min(45px,5%);
-    padding-right: max(40px,5%);
-    width: 20%;
-    max-width: 20%;
-    vertical-align: middle;
+.bio_table{
+    max-width:100%; 
+    margin-bottom: 3%; 
+    margin-top: 1%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
-td.bio_right {
-    padding: min(40px,5%);
-    width: 70%;
+.bio_left {
+    width: 28%;
+    max-width: 28%;
+    margin:30px;
     vertical-align: middle;
+    height: 180px;
 }
+.bio_right {
+    width: 100%;
+    vertical-align: middle;
+    margin:30px;
+    height: 180px;
+}
+
 body {
     background-color: #ffffff;
 
