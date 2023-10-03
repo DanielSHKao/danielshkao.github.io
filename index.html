@@ -1,116 +1,24 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/css/uikit.min.css" /> 
-    <link rel="stylesheet" href="mystyle.css">
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/js/uikit.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/js/uikit-icons.min.js"></script> 
-    <script src="js/uikit-icons.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="author" content="Shiu-hong CHEN">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiu-hong Kao</title>
-    <link rel = "icon" href = "src/icon.png"
-        type = "image/x-icon">
-  </head>
-  <body>
-    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; end: !.uk-height-large;">
-        <nav class="uk-navbar-container uk-margin uk-light" style="background-color: #7e9fde" uk-navbar>
-            <div class="uk-navbar-left">
-                <a class="uk-navbar-item uk-logo uk-text-primary" href="index.html">Shiu-hong Kao (高旭宏)</a>
-            </div>
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <li class="uk-active uk-visible@m"> <a href="">Home</a> </li>
-                    <li class="uk-active uk-visible@m"> <a href="./research.html"> Research </a> </li>
-                    <li class="uk-active uk-visible@m"> <a href="./experience.html"> Experience </a> </li>
-                    <li class="uk-active uk-visible@m"> <a href="./award.html"> Awards </a> </li>
-                    <li class="uk-active uk-visible@m"> <a href="./cv.html"> CV </a> </li>
-                    <a class="uk-active uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#offcanvas-nav-primary" uk-toggle></a>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
-        <div class="uk-offcanvas-bar uk-flex uk-flex-column">
-            <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-                <li class="uk-active"> <a href=""> Home </a> </li>
-                <li class="uk-active"> <a href="./research.html"> Research </a> </li>
-                <li class="uk-active"> <a href="./experience.html"> Experience </a> </li>
-                <li class="uk-active"> <a href="./award.html"> Awards </a> </li>
-                <li class="uk-active"> <a href="./cv.html"> CV </a> </li>
-            </ul>
-        </div>
-    </div>
-    <div id="bio">
-        <div class="phone_img"style="position:absolute;">
-            <a href="src/daniel.jpg" class="phone">
-              <img src="src/daniel.jpg" class="phone_img_style">
-            </a>
-          </div>
-          
-          <div class="phone_img" style="position:relative;visibility: hidden;">
-            <a href="src/daniel.jpg" class="phone">
-              <img src="src/daniel.jpg" class="phone_img_style">
-            </a>
-        </div>
-        <table class="bio_table"><tbody>
-            <tr>
-                <td class="bio_left desktop">
-                    <center>
-                    <img src="src/daniel.jpg" class="avatar"/><br/>
-                    </center>
-                        
-                    
-                </td>
-                <td class="bio_right">
-                    <div style="color: gray;"><span uk-icon="icon: user"></span><small> Alt name: Daniel Kao</small></div>
-                    <div style="color: gray;"><span uk-icon="icon: location"></span><small> Office: Room 4204-35, HKUST</small></div>
-                    <a style="color: gray;" href = "mailto: skao@cse.ust.hk" target="_blank"><div style="color: gray;"><span uk-icon="icon: mail"></span><small> Email: skao@cse.ust.hk</small></div></a>
-                    <a style="color: gray;" href = "https://scholar.google.com/citations?user=hpD2pbwAAAAJ&hl=en&oi=ao" target="_blank"><div style="color: gray;"><span style="width: 20px; height:20px;" uk-icon="icon: google-scholar"></span><small> Google Scholar</small></div></a> 
-                    <a style="color: gray;" href = "https://www.linkedin.com/in/danielshkao/" target="_blank"><div style="color: gray;"><span uk-icon="icon: linkedin"></span><small> LinkedIn</small></div></a> 
-                    <a style="color: gray;" href = "https://github.com/DanielSHKao" target="_blank"><div style="color: gray;"><span uk-icon="icon: github"></span><small> Github</small></div></a>
-
-                </td>
-            </tr>
-        </tbody>
-        </table>
-        <div style="width:90%; margin-left: 5%; margin-right: 5%;">
-            <p>
-                I am a 1st-year <a href="https://cse.hkust.edu.hk/pg/" target="_blank">M.Phil.</a> student at 
-                <a href="https://hkust.edu.hk/" target="_blank">HKUST</a> <a href="https://cse.hkust.edu.hk/" target="_blank">CSE Department</a>, 
-                advised by Prof. <a href="http://www.cs.ust.hk/~cktang" target="_blank">Chi-Keung Tang</a>.  
-                I graduated from HKUST with B.Sc. in <a href="https://dsct.hkust.edu.hk/" target="_blank">Data Science and Technology</a> and B.Sc. in <a href="https://cse.hkust.edu.hk/bsc/" target="_blank">Computer Science</a>, where 
-                I was lucky to join Prof. <a href="https://www.cse.ust.hk/~gchan/" target="_blank">Shueng-Han Gary Chan</a>'s group and cooperate with Dr. <a href="https://jierunchen.github.io/" target="_blank">Jierun Chen</a> for my final-year thesis.
-            </p>
-            <p>My research interest lies in the intersection of machine learning and computer vision, specifically with the following focuses:
-                <ul>
-                    <li>
-                        Designing computation/time-efficient operators and architectures of neural networks.
-                    </li>
-                    <li>
-                        Knowledge Distillation for model compression and acceleration.
-                    </li>
-                </ul>
-            </p>
-            <p>Recently, I am also interested in 3D reconstruction with Neural Radiance Fields (NeRF) and image generation with Denoising Diffusion Probabilistic Models (DDPM).</p>
-            <p>
-                <span class="news-word news-word-1"><b>News</b></span><span style="color: red">: I'm currently seeking an internship opportunity of <u>computer vision research scientist</u> for summer 2024. Please do not hesitate to contact me for any potential collaboration.&#128578</span>
-            </p>
-        </div>
-        
-    </div>
-
-    <div id="footer">
-        <hr/>
-        <center>
-            <div id="clustr_map" style="width:8%; min-width: 40px;">
-                <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=_ofYGB4FObWdYaSCnIB-UVg9hdUzBVm1P4rUKEjg9NU"></script>
-            </div>
-            <small style="color: rgb(160, 160, 160)">© Shiu-hong Kao | Last updated: Sep. 2023.<br/></small>
-        </center>
-        
-    </div>
-
-  </body>
+  
+<head>
+    <title>
+        Redirecting
+    </title>
+    <meta http-equiv="refresh"
+          content="2; 
+                url=https://cse.ust.hk/~skao/">
+</head>
+  
+<body>
+    <!-- Link to the destination page 
+      in case the refresh does not work -->
+    Redirecting to my new homepage.
+    <br> 
+    If you are not redirected automatically, please 
+    <a href="https://cse.ust.hk/~skao/">
+      click here
+    </a>.
+</body>
+  
 </html>
