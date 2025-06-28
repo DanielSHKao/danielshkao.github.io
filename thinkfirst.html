@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>ThinkFirst</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- mirror: F0%9F%AA%9E&lt -->
+    <link rel="icon" type="image/png" href="src/thinkfirst/thinkfirst_icon.png">
+    <link rel="stylesheet" href="src/thinkfirst/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/thinkfirst/css/font-awesome.min.css">
+    <link rel="stylesheet" href="src/thinkfirst/css/codemirror.min.css">
+    <link rel="stylesheet" href="src/thinkfirst/css/app.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/codemirror.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/video_comparison.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="header" style="text-align: center; margin: auto;">
+        <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+            <h2 class="col-md-12 text-center" id="title">
+                Think Before You Segment: <br>High-Quality Reasoning Segmentation with GPT Chain of Thoughts
+            </h2>
+            <div class="col-md-12 text-center" style="margin-top: 0; font-size: 1.5em;">
+                ArXiv 2025
+            </div>
+        </div>
+                <div class="author-list">
+                    <div class="author">
+                        <a href="https://danielshkao.github.io/">Shiu-hong Kao</a>
+                        <br>
+                        HKUST
+                    </div>
+                    <div class="author">
+                        <a href="https://yuwingtai.github.io/">Yu-Wing Tai</a>
+                        <br>
+                        Dartmouth College
+                    </div>
+                    <div class="author">
+                        <a href="https://cse.hkust.edu.hk/~cktang/bio.html">Chi-Keung Tang</a>
+                        <br>
+                        HKUST
+                    </div>
+                </div>
+    </div>
+    <script>
+        document.getElementById('author-row').style.maxWidth = document.getElementById("title-row").clientWidth + 'px';
+    </script>
+    <div class="container" id="main">
+        <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2503.07503" target="_blank">
+                                <img src="src/thinkfirst/file_icon.png" height="60px"><br>
+                                <strong>Paper</strong>
+                            </a>
+                          </li>                                 
+                        <li>
+                            <a href="https://github.com/DanielSHKao/ThinkFirst" target="_blank">
+                                <img src="src/thinkfirst/code_icon.png" height="60px"><br>
+                                <strong>Code (coming soon)</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">   
+                <img src="src/thinkfirst/teaser.png" class="img-responsive" alt="overview" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <p class="text-justify" style="margin-top:1cm;">
+                    We propose ThinkFirst, a novel Chain-of-Thought (CoT) reasoning segmentation framework that generates an accurate object
+                    mask given a text prompt, implicit or explict with complex details alike, after autonomously Thinking First with GPT-4o’s CoT. Our zero-
+                    shot-CoT framework can handle difficult scenarios such as implicit queries, camouflaged objects, out-of-domain objects with easy control.
+                </p>
+
+                <h3>Abstract</h3>
+                <img src="src/thinkfirst/method.png" class="img-responsive" alt="overview" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                <p class="text-justify" style="margin-top:1cm;">
+                    Reasoning segmentation is a challenging vision-language task that aims to output the segmentation mask with respect to a complex,  implicit, and even non-visual query text. Previous works incorporated multimodal Large Language Models (MLLMs) with segmentation models to approach the difficult problem. However, their segmentation quality often falls short in complex cases, particularly when dealing with out-of-domain objects with intricate structures, blurry boundaries, occlusions, or high similarity with surroundings. In this paper, we introduce <b>ThinkFirst</b>, a training-free reasoning segmentation framework that leverages GPT's chain of thought to address these challenging cases. Our  approach allows GPT-4o or other powerful MLLMs to generate a detailed, chain-of-thought description of an image. This summarized description is then passed to a language-instructed segmentation assistant to aid the segmentation process. Our framework allows users to easily interact with the segmentation agent using multimodal inputs, such as easy text and image scribbles, for successive refinement or communication. We evaluate the performance of ThinkFirst on diverse objects. Extensive experiments show that, this zero-shot-CoT approach significantly improves the vanilla reasoning segmentation agent, both qualitatively and quantitatively, while being less sensitive or critical to user-supplied prompts after Thinking First.
+                </p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <hr>
+                    <h3>
+                        Reasoning Segmentation results
+                    </h3>
+                    <h4>
+                        Camouflaged Objects 
+                    </h4>
+                    <img src="src/thinkfirst/qualitative.png" class="img-responsive" alt="overview" style="max-width: 100%; height: auto; display: block; margin: auto;">
+                    
+                    <p style="margin-top:1cm; margin-bottom:1cm">ThinkFirst showcases state-of-the-art performance in challenging cases, such as camouflaged images, where objects are "seamlessly" embedded into their surroundings.</p>
+                    <h4>
+                        Indoor Scene
+                    </h4>
+                    <img src="src/thinkfirst/implicit.png" class="img-responsive" alt="overview" style="max-width: 85%; height: auto; display: block; margin: auto;">
+                    <p style="margin-top:1cm; margin-bottom:1cm">In indoor scenes, ThinkFirst demonstrates outstanding reasoning capability for very implicit and complicated queries.</p>
+                    <h4>
+                        Underwater examples
+                    </h4>
+                    <img src="src/thinkfirst/underwater.png" class="img-responsive" alt="overview" style="max-width: 55%; height: auto; display: block; margin: auto;">
+                    <p style="margin-top:1cm; margin-bottom:1cm">It can also be used to tackle underwater images, where objects are captured under severe blurry and color shift condition. 
+                    </p>
+
+                    <hr>
+                    <h3>
+                        Casual Scribble-based Segmentation
+                    </h3>
+                    <img src="src/thinkfirst/scribbles.png" class="img-responsive" alt="overview" style="max-width: 80%; height: auto; display: block; margin: auto;">
+                    <p style="margin-top:1cm; margin-bottom:1cm">ThinkFirst supports various types of easy image-based controls, such as casual scribbles, bounding boxes, points, etc.
+                    </p>
+                    <img src="src/thinkfirst/control.png" class="img-responsive" alt="overview" style="max-width: 50%; height: auto; display: block; margin: auto;">
+                    
+                    <hr>
+                    <h3>
+                        Where's Waldo?
+                    </h3>
+                    <img src="src/thinkfirst/waldo.png" class="img-responsive" alt="overview" style="max-width: 50%; height: auto; display: block; margin: auto;">
+                    <p style="margin-top:1cm; margin-bottom:1cm">ThinkFirst can be used to solve a classic game called "Where's Waldo?", pushing a reasoning segmentation model under testing to
+                    limits when we humans may not be able to spot Waldo without effort. </p>
+                    
+                    <p>Explore more results in our paper!</p>
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Citation
+                    </h3>
+                    <div class="form-group col-md-12 col-md-offset-0">
+                        <textarea id="bibtex" class="form-control" readonly style="height: 160px;">
+@article{kao2025think,
+    title={Think Before You Segment: High-Quality Reasoning Segmentation with GPT Chain of Thoughts},
+    author={Kao, Shiu-hong and Tai, Yu-Wing and Tang, Chi-Keung},
+    journal={arXiv preprint arXiv:2503.07503},
+    year={2025}
+}
+    </textarea>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Acknowledgements
+                    </h3>
+                    <p class="text-justify">
+                    The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="//clustrmaps.com/map_v2.js?d=VN13Ch5-DnHNy30PNWUjRAFdG-VzNOLa-JDzukJQTuA&cl=ffffff&w=a"></script>
+</body>
+</html>

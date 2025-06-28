@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="mystyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/js/uikit-icons.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Shiu-hong CHEN">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiu-hong Kao - Research</title>
+    <link rel = "icon" href = "src/icon.png"
+        type = "image/x-icon">
+  </head>
+  <body>
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; end: !.uk-height-large;" style="padding-bottom:20px;">
+        <nav class="uk-navbar-container uk-margin uk-light" style="background-color: #7e9fde" uk-navbar>
+            <div class="uk-navbar-left">
+                <span class="uk-navbar-item uk-logo uk-text-primary" href="index.html" style="font-size: 28px; font-family:'Lato', Verdana, Helvetica, sans-serif; text-transform: capitalize;">Shiu-hong Kao (高旭宏)</span><br/>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active uk-visible@m"> <a href="./index.html"><span class="navi">Home</span></a> </li>
+                    <li class="uk-active uk-visible@m"> <a href=""><span class="navi">Research</span></a> </li>
+                    <li class="uk-active uk-visible@m"> <a href="./experience.html"><span class="navi">Experience</span></a> </li>
+                    <li class="uk-active uk-visible@m"> <a href="./cv.html"><span class="navi">CV</span></a> </li>
+                    <a class="uk-active uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#offcanvas-nav-primary" uk-toggle></a>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+            <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+                <li class="uk-active"> <a href="./index.html"><span class="navi">Home</span></a> </li>
+                <li class="uk-active"> <a href=""><span class="navi">Research</span></a> </li>
+                <li class="uk-active"> <a href="./experience.html"><span class="navi">Experience</span></a> </li>
+                <li class="uk-active"> <a href="./cv.html"><span class="navi">CV</span></a> </li>
+            </ul>
+        </div>
+    </div>
+    <center>
+    <div id="Research" style="text-align: left; width: 100%; max-width: 1200px;">
+        <div style="width:90%; margin-left: 5%; margin-right: 5%;">
+        <h3 style="font-size:26px; font-family: 'Lato', Verdana, Helvetica, sans-serif; text-transform: capitalize; padding-left: 20pt;text-decoration: underline;">Publications</h3>
+            <table id="pub_table" style="width:100%">
+                <tr>
+                    <td class="pub_left desktop"><center>
+                        <div class="one" onmouseout="ThinkVideo_stop()" onmouseover="ThinkVideo_start()">
+                          <div class="two" id='ThinkVideo_image'><video  class="pub_video" muted autoplay loop>
+                          <source src="src/thinkvideo-small.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video></div>
+                          <img src='src/thinkvideo.png'  class="pub_img">
+                      </div></center>
+                        <script type="text/javascript">
+                          function ThinkVideo_start() {
+                            document.getElementById('ThinkVideo_image').style.opacity = "1";
+                          }
+              
+                          function ThinkVideo_stop() {
+                            document.getElementById('ThinkVideo_image').style.opacity = "0";
+                          }
+                          ThinkVideo_stop()
+                        </script>
+                      </td>
+                      <td class="pub_right">
+                          <div class="one phone" onmouseout="ThinkVideo_video_stop()" onmouseover="ThinkVideo_video_start()">
+                              <div><center>
+                                  <div class="two" id='ThinkVideo_video_image'><video  class="pub_video_phone" muted autoplay loop>
+                                  <source src="src/thinkvideo-small.mp4" type="video/mp4">
+                                  Your browser does not support the video tag.
+                                  </video></div>
+                                  <img src='src/thinkvideo.png'  class="pub_img_phone"></center>
+                              </div>
+                            </div>
+                            <script type="text/javascript">
+                              function ThinkVideo_video_start() {
+                                document.getElementById('ThinkVideo_video_image').style.opacity = "1";
+                              }
+                  
+                              function ThinkVideo_video_stop() {
+                                document.getElementById('ThinkVideo_video_image').style.opacity = "0";
+                              }
+                              ThinkVideo_video_stop()
+                        </script>
+                        <b style="font-size: larger;">ThinkVideo: High-Quality Reasoning Video Segmentation with Chain of Thoughts</b><br/>
+                        <u>Shiu-hong Kao</u>, Yu-Wing Tai, Chi-Keung Tang<br/>
+                        <i>ArXiv 2025</i><br/>
+                        [<a href="https://arxiv.org/abs/2505.18561" target="_blank">arXiv</a>]
+                        [<a href="https://danielshkao.github.io/thinkvideo.html" target="_blank">Project page</a>]<br/>
+                        <p>We introduce ThinkVideo, a chain-of-thought framework for reasoning video instance segmentation, pushing the reasoning capability of GPT-4o to tackle difficult temporally-sensitive cases.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pub_left desktop">
+                        <div class='one'><center><img class="pub_img" src="src/thinkfirst.png" /></center></div>
+                    </td>
+                    <td class="pub_right">
+                        <div class='one phone'><center><img class="pub_img_phone" src="src/thinkfirst.png"/></center></div>
+                        <b style="font-size: larger;">Think Before You Segment: High-Quality Reasoning Segmentation with GPT Chain of Thoughts</b><br/>
+                        <u>Shiu-hong Kao</u>, Yu-Wing Tai, Chi-Keung Tang<br/> 
+                        <i>Arxiv preprint 2025.</i><br/>
+                        [<a href="http://arxiv.org/abs/2503.07503" target="_blank">arXiv</a>] [<a href="https://danielshkao.github.io/thinkfirst.html" target="_blank">Project page</a>]
+                        <p>
+                            We propose ThinkFirst, a novel Chain-of-Thought (CoT) reasoning segmentation framework that generates an accurate object mask given a text prompt.
+                            ThinkFirst can handle difficult scenarios such as implicit queries, camouflaged objects, out-of-domain objects with easy control.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pub_left desktop"><center>
+                      <div class="one" onmouseout="UVRM_stop()" onmouseover="UVRM_start()">
+                        <div class="two" id='UVRM_image'><video  class="pub_video" muted autoplay loop>
+                        <source src="src/uvrm.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video></div>
+                        <img src='src/uvrm_teaser.jpg'  class="pub_img">
+                    </div></center>
+                      <script type="text/javascript">
+                        function UVRM_start() {
+                          document.getElementById('UVRM_image').style.opacity = "1";
+                        }
+            
+                        function UVRM_stop() {
+                          document.getElementById('UVRM_image').style.opacity = "0";
+                        }
+                        UVRM_stop()
+                      </script>
+                    </td>
+                    <td class="pub_right">
+                        <div class="one phone" onmouseout="UVRM_video_stop()" onmouseover="UVRM_video_start()">
+                            <div><center>
+                                <div class="two" id='UVRM_video_image'><video  class="pub_video_phone" muted autoplay loop>
+                                <source src="src/uvrm.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                                </video></div>
+                                <img src='src/uvrm_teaser.jpg'  class="pub_img_phone"></center>
+                            </div>
+                          </div>
+                          <script type="text/javascript">
+                            function UVRM_video_start() {
+                              document.getElementById('UVRM_video_image').style.opacity = "1";
+                            }
+                
+                            function UVRM_video_stop() {
+                              document.getElementById('UVRM_video_image').style.opacity = "0";
+                            }
+                            UVRM_video_stop()
+                          </script>
+                          <b style="font-size: larger;">UVRM: A Scalable 3D Reconstruction Model from Unposed Videos</b><br/>
+                          <u>Shiu-hong Kao</u>, Xiao Li, Jinglu Wang, Yang Li, Chi-Keung Tang, Yu-Wing Tai, Yan Lu<br/>
+                          <i>Arxiv preprint 2025.</i><br/>
+                          [<a href="http://arxiv.org/abs/2501.09347" target="_blank">arXiv</a>] [<a href="https://danielshkao.github.io/src/uvrm_demo.mp4" target="_blank">Demo</a>]
+                          <p>
+                            We introduce UVRM, a novel 3D reconstruction model capable of being trained and evaluated on 360-degree monocular videos without requiring any information about the pose.
+                          </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pub_left desktop"><center>
+                        <div class="one" onmouseout="StreamGS_stop()" onmouseover="StreamGS_start()">
+                          <div class="two" id='streamgs_image'><video  class="pub_video" muted autoplay loop>
+                          <source src="src/streamgs.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video></div>
+                          <img src='src/streamgs_teaser.png'  class="pub_img">
+                      </div></center>
+                        <script type="text/javascript">
+                          function StreamGS_start() {
+                            document.getElementById('streamgs_image').style.opacity = "1";
+                          }
+              
+                          function StreamGS_stop() {
+                            document.getElementById('streamgs_image').style.opacity = "0";
+                          }
+                          StreamGS_stop()
+                        </script>
+                      </td>
+                      <td class="pub_right">
+                          <div class="one phone" onmouseout="StreamGS_video_stop()" onmouseover="StreamGS_video_start()">
+                              <div><center>
+                                  <div class="two" id='StreamGS_video_image'><video  class="pub_video_phone" muted autoplay loop>
+                                  <source src="src/streamgs.mp4" type="video/mp4">
+                                  Your browser does not support the video tag.
+                                  </video></div>
+                                  <img src='src/streamgs_teaser.png'  class="pub_img_phone"></center>
+                              </div>
+                            </div>
+                            <script type="text/javascript">
+                              function StreamGS_video_start() {
+                                document.getElementById('StreamGS_video_image').style.opacity = "1";
+                              }
+                  
+                              function StreamGS_video_stop() {
+                                document.getElementById('StreamGS_video_image').style.opacity = "0";
+                              }
+                              StreamGS_video_stop()
+                            </script>
+                            <b style="font-size: larger;">StreamGS: Online Generalizable Gaussian Splatting Reconstruction for Unposed Image Streams</b><br/>
+                            Yang Li, Jinglu Wang, Lei Chu, Xiao Li, <u>Shiu-hong Kao</u>, Yingcong Chen, Yan Lu<br/> 
+                            <i>International Conference on Computer Vision (ICCV), 2025</i><br/>
+                            [<a href="https://arxiv.org/abs/2503.06235" target="_blank">arXiv</a>]
+                            <p>
+                                We propose StreamGS, an online generalizable 3DGS reconstruction method for unposed image streams, 
+                                which progressively transform image streams to 3D Gaussian streams by predicting and aggregating per-frame Gaussians.
+                            </p>
+                      </td>
+                </tr>
+                <tr>
+                    <td class="pub_left desktop">
+                        <div class='one'><center><img class="pub_img" src="src/igct.png" /></center></div>
+                    </td>
+                    <td class="pub_right">
+                        <div class='one phone'><center><img class="pub_img_phone" src="src/igct.png"/></center></div>
+                        <b style="font-size: larger;">Beyond and Free from Diffusion: Invertible Guided Consistency Training</b><br/>
+                        Chia-Hong Hsu, <u>Shiu-hong Kao</u>, Randall Balestriero<br/> 
+                        <i>Arxiv preprint 2025.</i><br/>
+                        [<a href="https://arxiv.org/abs/2502.05391" target="_blank">arXiv</a>] [<a href="https://swimmincatt35.github.io/iGCT/" target="_blank">Project page</a>]
+                        <p>
+                            We propose invertible Guided Consistency Training (iGCT), a data-driven training framework for guided consistency model, 
+                            contributing to fast and guided image generation and editing without requiring the training and distillation of any diffusion models.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pub_left desktop"><center>
+                      <div class="one" onmouseout="DeceptiveHuman_stop()" onmouseover="DeceptiveHuman_start()">
+                        <div class="two" id='DeceptiveHuman_image'><video  class="pub_video" muted autoplay loop>
+                        <source src="src/deceptivehuman.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video></div>
+                        <img src='src/deceptivehuman.png'  class="pub_img">
+                    </div></center>
+                      <script type="text/javascript">
+                        function DeceptiveHuman_start() {
+                          document.getElementById('DeceptiveHuman_image').style.opacity = "1";
+                        }
+            
+                        function DeceptiveHuman_stop() {
+                          document.getElementById('DeceptiveHuman_image').style.opacity = "0";
+                        }
+                        DeceptiveHuman_stop()
+                      </script>
+                    </td>
+                    <td class="pub_right">
+                        <div class="one phone" onmouseout="DeceptiveHuman_video_stop()" onmouseover="DeceptiveHuman_video_start()">
+                            <div><center>
+                                <div class="two" id='DeceptiveHuman_video_image'><video  class="pub_video_phone" muted autoplay loop>
+                                <source src="src/deceptivehuman.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                                </video></div>
+                                <img src='src/deceptivehuman.png'  class="pub_img_phone"></center>
+                            </div>
+                          </div>
+                          <script type="text/javascript">
+                            function DeceptiveHuman_video_start() {
+                              document.getElementById('DeceptiveHuman_video_image').style.opacity = "1";
+                            }
+                
+                            function DeceptiveHuman_video_stop() {
+                              document.getElementById('DeceptiveHuman_video_image').style.opacity = "0";
+                            }
+                            DeceptiveHuman_video_stop()
+                          </script>
+                          <b style="font-size: larger;">InceptionHuman: Controllable Prompt-to-NeRF for Photorealistic 3D Human Generation</b><br/>
+                          <u>Shiu-hong Kao</u>, Xinhang Liu, Yu-Wing Tai, Chi-Keung Tang<br/>
+                          <i>Arxiv preprint 2024.</i><br/>
+                          [<a href="https://arxiv.org/abs/2311.16499" target="_blank">arXiv</a>]
+                          <p>
+                              We propose InceptionHuman, a NeRF-based generative framework incorporating state-of-the-art diffusion models, which receives any types and any sizes of prompts, (<i>e.g. text, pose, style</i>) to generate realistic 3D human.
+                          </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pub_left desktop"><center>
+                        <div class="one" onmouseout="DeceptiveNeRF_stop()" onmouseover="DeceptiveNeRF_start()">
+                          <div class="two" id='DeceptiveNeRF_image'><video  class="pub_video" muted autoplay loop>
+                          <source src="src/deceptivenerf.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video></div>
+                          <img src='src/deceptivenerf.png'  class="pub_img">
+                      </div></center>
+                        <script type="text/javascript">
+                          function DeceptiveNeRF_start() {
+                            document.getElementById('DeceptiveNeRF_image').style.opacity = "1";
+                          }
+              
+                          function DeceptiveNeRF_stop() {
+                            document.getElementById('DeceptiveNeRF_image').style.opacity = "0";
+                          }
+                          DeceptiveNeRF_stop()
+                        </script>
+                      </td>
+                      <td class="pub_right">
+                          <div class="one phone" onmouseout="DeceptiveNeRF_video_stop()" onmouseover="DeceptiveNeRF_video_start()">
+                              <div><center>
+                                  <div class="two" id='DeceptiveNeRF_video_image'><video  class="pub_video_phone" muted autoplay loop>
+                                  <source src="src/deceptivenerf.mp4" type="video/mp4">
+                                  Your browser does not support the video tag.
+                                  </video></div>
+                                  <img src='src/deceptivenerf.png'  class="pub_img_phone"></center>
+                              </div>
+                            </div>
+                            <script type="text/javascript">
+                              function DeceptiveNeRF_video_start() {
+                                document.getElementById('DeceptiveNeRF_video_image').style.opacity = "1";
+                              }
+                  
+                              function DeceptiveNeRF_video_stop() {
+                                document.getElementById('DeceptiveNeRF_video_image').style.opacity = "0";
+                              }
+                              DeceptiveNeRF_video_stop()
+                        </script>
+                        <b style="font-size: larger;">Diffusion-Generated Pseudo-Observations for High-Quality Sparse-View Reconstruction</b><br/>
+                        Xinhang Liu, Jiaben Chen, <u>Shiu-hong Kao</u>, Yu-Wing Tai, Chi-Keung Tang<br/>
+                        <i>European Conference on Computer Vision (ECCV), 2024</i><br/>
+                        [<a href="https://arxiv.org/abs/2305.15171" target="_blank">arXiv</a>]
+                        [<a href="https://deceptive-nerf.github.io/" target="_blank">Project page</a>]<br/>
+                        <p>We introduce Deceptive-NeRF/3DGS, a new method for enhancing the quality of reconstructed NeRF/3DGS models using synthetically generated pseudo-observations, capable of handling sparse input and removing floater artifacts.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pub_left desktop">
+                        <div class='one'><center><img class="pub_img" src="src/StableKD.png" /></center></div>
+                    </td>
+                    <td class="pub_right">
+                        <div class='one phone'><center><img class="pub_img_phone" src="src/StableKD.png"/></center></div>
+                        <b style="font-size: larger;">StableKD: Breaking Inter-block Optimization Entanglement for Stable Knowledge Distillation</b><br/>
+                        <u>Shiu-hong Kao</u>*, Jierun Chen*, S.-H. Gary Chan<br/> 
+                        <i>Arxiv preprint 2023.</i><br/>
+                        [<a href="https://arxiv.org/abs/2312.13223" target="_blank">arXiv</a>]
+                        [<a href="https://github.com/DanielSHKao/StableKD" target="_blank">Code</a>]<br/>
+                        <p>
+                            We reveal the issue of Inter-block Optimization Entanglement (IBOE) in 
+                            end-to-end KD training and further propose StableKD to stablilize optimization.
+                            Extensive experiments show StableKD achieve high accuracy, fast convergence, and high data efficiency.
+
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pub_left desktop">
+                        <div class='one'><center><img class="pub_img" src="src/pconv.png"/></center></div>
+                    </td>
+                    <td class="pub_right ">
+                        <div class='one phone'><center><img class="pub_img_phone" src="src/pconv.png"/></center></div>
+                        <b style="font-size: larger;">Run, Don't Walk: Chasing Higher FLOPS for Faster Neural Networks</b><br/>
+                        Jierun Chen, <u>Shiu-hong Kao</u>, Hao He, Weipeng Zhuo, Song Wen, Chul-Ho Lee, S.-H. Gary Chan<br/>
+                        <i>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023</i><br/>
+                        [<a href="https://openaccess.thecvf.com/content/CVPR2023/html/Chen_Run_Dont_Walk_Chasing_Higher_FLOPS_for_Faster_Neural_Networks_CVPR_2023_paper.html" target="_blank">Paper</a>]
+                        [<a href="https://github.com/JierunChen/FasterNet" target="_blank">Code</a>]
+                        <iframe src="https://ghbtns.com/github-btn.html?user=JierunChen&repo=FasterNet&type=star&count=true&size=small" frameborder="0" scrolling="0" width="100" height="20" title="GitHub"></iframe>	
+                        <br/>
+                        <p>We propose a simple yet fast and effective partial convolution (PConv), as well as a latency-efficient family of network architectures called FasterNet.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3 style="font-size:26px; font-family: 'Lato', Verdana, Helvetica, sans-serif; text-transform: capitalize; padding-left: 20pt;text-decoration: underline;" >Projects</h3>
+            <ul style="text-align: left;">
+                <li>
+                    <b style="font-size: larger;">Dynamic Neural Network Comparison: Efficiency and Performance</b><br/>
+                    <u>Shiu-hong Kao</u>, Jierun Chen, S.-H. Gary Chan<br/>
+                    <i>Undergraduate Research Opportunities Program, Fall 2021, HKUST</i><br/>
+                    [<a href="src/dnn_report.pdf" target="_blank">pdf</a>]<br/>
+                    <p>We test, analyze, and compare the performance and efficiency across different deep learning models.</p>
+                </li><br/>
+                <li>
+                    <b style="font-size: larger;">Press Release Classification on Mobile Application</b><br/>
+                    <u>Shiu-hong Kao</u>, Dimitris Chatzopoulos<br/>
+                    <i>Undergraduate Research Opportunities Program, Spring 2021, HKUST</i><br/>
+                    [<a href="src/AndroidReport.pdf" target="_blank">pdf</a>]<br/>
+                    <p>We develop a text-classifying AI model compact with memory-limited mobile devices.</p>
+                </li><br/>
+                <li>
+                    <b style="font-size: larger;">AlignKD: A Low-cost Technique for Convolutional Shortcut Removal</b><br/>
+                    <u>Shiu-hong Kao</u>, Bo-rong Lai<br/>
+                    <i>Course project for COMP4471 Deep Learning in Computer Vision, HKUST</i><br/>
+                    [<a href="src/AlignKD.pdf" target="_blank">pdf</a>]<br/>
+                    <p>AlignKD is a cheap method to remove shortcuts in convolutional neural networks while preserving the performance.</p>
+                </li>
+            </ul>
+        </div>
+    </div></center>
+    <div id="footer">
+        <hr/>
+            <center><small style="color: rgb(160, 160, 160)">© Shiu-hong Kao | Last updated: Jun. 2025.<br/>
+               
+            
+            </small></center>
+
+    </div>
+  </body>
+</html>

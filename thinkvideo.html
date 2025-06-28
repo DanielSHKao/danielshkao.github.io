@@ -1,0 +1,324 @@
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>ThinkVideo</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:image:type" content="ThinkVideo/image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ThinkVideo: High-Quality Reasoning Video Segmentation with Chain of Thoughts">
+
+    <!-- mirror: F0%9F%AA%9E&lt -->
+    <link rel="icon" type="ThinkVideo/image/x-icon" href="ThinkVideo/image/cot_icon.png">
+    <link rel="stylesheet" href="ThinkVideo/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ThinkVideo/css/font_awesome.min.css">
+    <link rel="stylesheet" href="ThinkVideo/css/codemirror.min.css">
+    <link rel="stylesheet" href="ThinkVideo/css/app.css">
+
+    <script src="ThinkVideo/js/jquery.min.js"></script>
+    <script src="ThinkVideo/js/bootstrap.min.js"></script>
+    <script src="ThinkVideo/js/codemirror.min.js"></script>
+    <script src="ThinkVideo/js/clipboard.min.js"></script>
+    <script src="ThinkVideo/js/video_comparison.js"></script>
+    <script src="ThinkVideo/js/app.js"></script>
+    <script src="ThinkVideo/js/inline_scripts.js"></script>
+
+</head>
+
+<body>
+    <div class="container" id="header" style="text-align: center; margin: auto;">
+        <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+            <h2 class="col-md-12 text-center" id="title">
+                <b>ThinkVideo</b>: High-Quality Reasoning Video Segmentation<br> with Chain of Thoughts
+            </h2>
+            <div class="col-md-12 text-center" style="margin-top: 0; font-size: 1.5em;">
+                ArXiv 2025
+            </div>
+        </div>
+        <div class="author-list">
+            <div class="author">
+                <a href="https://danielshkao.github.io/" style="font-size: larger;">Shiu-hong Kao</a>
+                <br>
+                HKUST
+            </div>
+            <div class="author">
+                <a href="https://yuwingtai.github.io/" style="font-size: larger;">Yu-Wing Tai</a>
+                <br>
+                Dartmouth College
+            </div>
+            <div class="author">
+                <a href="https://cse.hkust.edu.hk/~cktang/bio.html" style="font-size: larger;">Chi-Keung Tang</a>
+                <br>
+                HKUST
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://arxiv.org/pdf/2505.18561" target="_blank">
+                        <img src="ThinkVideo/image/paper_image.png" height="60px">
+                            <h4><strong>Paper</strong></h4>
+                        </a>
+                    </li>                           
+                    <li>
+                        <a href="https://github.com/DanielSHKao/ThinkVideo" target="_blank">
+                        <img src="ThinkVideo/image/github.png" height="60px">
+                            <h4><strong>Code (Coming soon)</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                        <img src="ThinkVideo/image/real_database_icon.png" height="60px">
+                            <h4><strong>T-ReasonVOS Dataset (Coming soon)</strong></h4>
+                        </a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="video-container">
+                    <div class="description time-sensitive-query active"><i>My friend and I each drove our cars to another city. He was driving a white car and leading the way in front of me, but he drove too fast and I lost him. He called me to say that he had just been waiting at a traffic light and then crossed an intersection. Which one is most likely to be my friend's car?</i></div>
+                    <div class="video-compare-container active">
+                        
+                        <video controls class="video" id="car" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/friend-car-merged.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="carMerge"></canvas>
+                    </div>
+                    <div class="description time-insensitive-query"><i>The mode of transportation capable of transporting the largest group of people.</i></div>
+                    <div class="video-compare-container">
+                        
+                        <video controls class="video" id="passenger" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/most-passenger-merged.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="passengerMerge"></canvas>
+                    </div>
+                    <div class="description time-sensitive-query"><i>The vehicle that overtakes from the left and heads in a different direction at the intersection.</i></div>
+                    <div class="video-compare-container">
+                        <video class="video" id="direction" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/direction-merged.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="directionMerge"></canvas>
+                    </div>
+                    <div class="description time-sensitive-query"><i>American football players are fast, strong, and dexterous. Which player got his team on board with a brilliant play?</i></div>
+                    <div class="video-compare-container">
+                        <video controls class="video" id="nfl" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/nfl-merged.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="nflMerge"></canvas>
+                    </div>
+                    <div class="description time-sensitive-query"><i>The automobile that merged into my lane abruptly and then left.</i></div>
+                    <div class="video-compare-container">
+                        <video class="video" id="merge" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/abrupt-merge.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="mergeMerge"></canvas>
+                    </div>
+                    <div class="description time-sensitive-query"><i>Basketball is a popular sport in the US. The team who successfully put the ball inside the basket will get two or three points, depending on the distance of the shot. Players shoot the ball behind the three-point line will get three points. Are there any players making a three-point attempt in this video? Please segment the one who successfully made the three-point shot.</i></div>
+                    <div class="video-compare-container">
+                        <video class="video" id="nba" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/which-player-merged.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="nbaMerge"></canvas>
+                    </div>
+                    <div class="description time-sensitive-query"><i>If the animal were not on the right track, it would probably be intervened and corrected by human. Which one is on the wrong track?</i></div>
+                    <div class="video-compare-container">
+                        <video class="video" id="panda" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/panda-track-merged.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="pandaMerge"></canvas>
+                    </div>
+                    <div class="button-container">
+                        <button id="prevBtn"><span class="arrow">&lt;</span> Prev</button>
+                        <button id="nextBtn">Next <span class="arrow">&gt;</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p class="text-justify" style="text-align: right; color:rgb(216, 30, 30);">
+                    * Temporally sensitive queries are highlighted in red.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <center>
+                <h3>
+                    Abstract
+                </h3>
+                </center>
+                <p class="text-justify">
+                    Reasoning Video Object Segmentation is a challenging task, which generates a mask sequence from an input video and an implicit, complex text query. Existing works probe into the problem by finetuning Multimodal Large Language Models (MLLM) for segmentation-based output, while still falling short in difficult cases on videos given temporally-sensitive queries, primarily due to the failure to integrate temporal and spatial information. In this paper, we propose <b>ThinkVideo</b>, a novel framework which leverages the zero-shot Chain-of-Thought (CoT) capability of MLLM to address these challenges. Specifically, ThinkVideo utilizes the CoT prompts to extract object selectivities associated with particular keyframes, then bridging the reasoning image segmentation model and SAM2 video processor to output mask sequences. The ThinkVideo framework is training-free and compatible with closed-source MLLMs, which can be applied to Reasoning Video Instance Segmentation. We further extend the framework for online video streams, where the CoT is used to update the object of interest when  a better target starts to emerge and becomes visible. We conduct extensive experiments on video object segmentation with explicit and implicit queries. The results show that ThinkVideo significantly outperforms previous works in both cases, qualitatively and quantitatively.
+                </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                    <center><h3>ThinkVideo (Original): Reasoning Video Instance Segmentation</h3></center>
+                    <div class="text-justify">
+                        The CoT is applied to the entire video when available for reasoning instance segmentation, which leads to better performance than its online version. The offline version leverages an MLLM (e.g. GPT-4o) to generate instance-level selectivity based on the CoT reasoning. This selectivity is then passed to the reasoning image segmentation agent and video processor for instance mask tracking.                      
+                        <br><br>
+                    </div>                 
+                    <img src="ThinkVideo/image/offline-architecture.jpg" class="img-responsive" alt="overview" width="90%" style="max-height: 450px;margin:auto;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <center><h3>Reasoning VIS Results</h3></center>
+                <div class="video-container">
+                    <div class="description-vis time-insensitive-query active"><i>My friends and I want to buy a car because we always travel by public transportation, which is inconvenient sometimes. What object(s) may be used in our previous trips? Please find all visible in the video.</i></div>
+                    <div class="video-compare-container-vis active">
+                        
+                        <video controls class="video" id="public" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/public.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="publicMerge"></canvas>
+                    </div>
+                    <div class="description-vis time-sensitive-query"><i>Are there any subjects that overtake from my right side and stop in front of me, while I was waiting the traffic light? Please segment them.</i></div>
+                    <div class="video-compare-container-vis">
+                        
+                        <video controls class="video" id="stop" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/stop.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="stopMerge"></canvas>
+                    </div>
+                    <div class="description-vis time-insensitive-query"><i>Please segment all the visible subjects that are using some kind of transportation tool.</i></div>
+                    <div class="video-compare-container-vis">
+                        
+                        <video controls class="video" id="cyclist" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/cyclist.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="cyclistMerge"></canvas>
+                    </div>
+                    <div class="description-vis time-insensitive-query"><i>Last year, my roommates and I decided to have some pets together. What is/are the pets in the video?</i></div>
+                    <div class="video-compare-container-vis">
+                        <video class="video" id="pets" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/pets.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="petsMerge"></canvas>
+                    </div>
+                    <div class="button-container">
+                        <button id="prevBtnVIS"><span class="arrow">&lt;</span> Prev</button>
+                        <button id="nextBtnVIS">Next <span class="arrow">&gt;</span></button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                    <center><h3>ThinkVideo (Online): Online Reasoning Video Object Segmentation</h3></center>
+                    <div class="text-justify">
+                        Our approach can handle online video streams where future frames have yet to be observed. This is useful when the user would like to update the object of interest, if an object that better aligns with the query appears. This framework adopts a greedy strategy to periodically update the selected keyframe when an incoming frame satisfies the query requirement, then using the keyframe to track in the following frames. When none of the previous frames is selected as a keyframe, the model outputs nothing.
+                        <br><br>
+                    </div>   
+                    <img src="ThinkVideo/image/online-architecture.jpg" class="img-responsive" alt="overview" width="90%" style="max-height: 450px;margin:auto;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <center><h3>Online Reasoning VOS Results</h3></center>
+                <div class="video-container">
+                    <div class="description-online time-sensitive-query active"><i>Which subject is trying to climb using the pole on the right side?</i></div>
+                    <div class="video-compare-container-online active">
+                        
+                        <video controls class="video" id="pole" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/pole.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="poleMerge"></canvas>
+                    </div>
+                    <div class="description-online time-insensitive-query"><i>My friends and I are interested in horse racing, so we raise some horses together. Mine is a small, brown, and energetic horse. Which one is most likely to be mine?</i></div>
+                    <div class="video-compare-container-online">
+                        
+                        <video controls class="video" id="horse" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/horse.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="horseMerge"></canvas>
+                    </div>
+                    <div class="description-online time-sensitive-query"><i>Monkeys are social animals. The elder individual need to take care of the younger ones. Please segment the one that is currently taking care of others.</i></div>
+                    <div class="video-compare-container-online">
+                        
+                        <video controls class="video" id="monkey" loop="" playsinline="" autoplay="" muted="" src="ThinkVideo/video/monkey.mp4" onplay="resizeAndPlay(this)"></video>
+                        <canvas height="0" class="videoMerge" id="monkeyMerge"></canvas>
+                    </div>
+                    <div class="button-container">
+                        <button id="prevBtnOnline"><span class="arrow">&lt;</span> Prev</button>
+                        <button id="nextBtnOnline">Next <span class="arrow">&gt;</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <br/>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>BibTeX</h3>
+                <textarea>
+                    @article{thinkvideo,
+                        title={ThinkVideo: High-Quality Reasoning Video Segmentation with Chain of Thoughts},
+                        author={Kao, Shiu-hong and Tai, Yu-Wing and Tang, Chi-Keung},
+                        journal={arXiv preprint arXiv:2505.18561},
+                        year={2025}
+                    }
+                </textarea>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentIndex = 0;
+        const videoCompareContainers = document.querySelectorAll('.video-compare-container');
+        const Descriptions = document.querySelectorAll('.description');
+        let currentIndexvis = 0;
+        const videoCompareContainersvis = document.querySelectorAll('.video-compare-container-vis');
+        const Descriptionsvis = document.querySelectorAll('.description-vis');
+        let currentIndexOnline = 0;
+        const videoCompareContainersOnline = document.querySelectorAll('.video-compare-container-online');
+        const DescriptionsOnline = document.querySelectorAll('.description-online');
+        function showVideo(index) {
+            videoCompareContainers.forEach((container, i) => {
+                container.classList.toggle('active', i === index);
+            });
+            Descriptions.forEach((description, i) => {
+                description.classList.toggle('active', i === index);
+            });
+        }
+        function showVideoVIS(index) {
+            videoCompareContainersvis.forEach((container, i) => {
+                container.classList.toggle('active', i === index);
+            });
+            Descriptionsvis.forEach((description, i) => {
+                description.classList.toggle('active', i === index);
+            });
+        }
+        function showVideoOnline(index) {
+            videoCompareContainersOnline.forEach((container, i) => {
+                container.classList.toggle('active', i === index);
+            });
+            DescriptionsOnline.forEach((description, i) => {
+                description.classList.toggle('active', i === index);
+            });
+        }
+        document.getElementById('prevBtnVIS').addEventListener('click', () => {
+            currentIndexvis = (currentIndexvis > 0) ? currentIndexvis - 1 : videoCompareContainersvis.length - 1;
+            showVideoVIS(currentIndexvis);
+        });
+
+        document.getElementById('nextBtnVIS').addEventListener('click', () => {
+            currentIndexvis = (currentIndexvis < videoCompareContainersvis.length - 1) ? currentIndexvis + 1 : 0;
+            showVideoVIS(currentIndexvis);
+        });
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : videoCompareContainers.length - 1;
+            showVideo(currentIndex);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex < videoCompareContainers.length - 1) ? currentIndex + 1 : 0;
+            showVideo(currentIndex);
+        });
+
+        document.getElementById('prevBtnOnline').addEventListener('click', () => {
+            currentIndexOnline = (currentIndexOnline > 0) ? currentIndexOnline - 1 : videoCompareContainersOnline.length - 1;
+            showVideoOnline(currentIndexOnline);
+        });
+
+        document.getElementById('nextBtnOnline').addEventListener('click', () => {
+            currentIndexOnline = (currentIndexOnline < videoCompareContainersOnline.length - 1) ? currentIndexOnline + 1 : 0;
+            showVideoOnline(currentIndexOnline);
+        });
+
+        // Initialize the first video
+        showVideo(currentIndex);
+        showVideoVIS(currentIndexvis);
+        showVideoOnline(currentIndexOnline);
+    </script>
+    <script src="//clustrmaps.com/map_v2.js?d=Bb8Cxfxg26fCE0ubqEkm9iJO5LH9mQOf9hhqO50pqG0&cl=ffffff&w=a"></script>
+</body></html>
