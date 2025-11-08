@@ -1,0 +1,12 @@
+... Based on the provided text, here are the key details about the
+51st G7 summit:
+- *Event*: 51st G7 Summit
+- *Date*: 16–17 June 2025
+- *Location*: Kananaskis, Alberta, Canada
+- *Host Country*: Canada
+- *Participants*:
+- G7 Members: Canada, France, Germany, Italy, Japan, United
+Kingdom, United States, and the European Union
+- Invited Countries: Australia, Brazil, India, Mexico, South
+Africa, South Korea, Ukraine
+For segmentation, please segment the Canadian flag.

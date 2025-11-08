@@ -1,0 +1,16 @@
+Phyllobates samperi
+
+To segment the image of *Phyllobates samperi*, we need to identify the key features of this species based on the provided context:
+
+1. **Coloration**: *Phyllobates samperi* is characterized by a uniform black or bluish-black body with orange or red stripes. This distinguishes it from similar species like *P. aurotaenia*, which has green or yellow stripes and blue or silver specks.
+
+2. **Size and Shape**: It resembles *P. aurotaenia* in size and to some extent in coloration, but it is genetically related to *P. terribilis*.
+
+3. **Habitat**: It is found in wet forests along the lower San Juan and Dagua river basins in Colombia.
+
+For segmentation, focus on the following:
+- Identify and outline the black or bluish-black body.
+- Highlight the orange or red stripes running along the body.
+- Ensure the background and other elements are separated from the frog's distinct color pattern.
+
+Using these features, you can accurately segment *Phyllobates samperi* in the image.

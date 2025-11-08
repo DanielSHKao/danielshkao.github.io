@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>CoT-Seg</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- mirror: F0%9F%AA%9E&lt -->
+    <link rel="icon" type="CoT-Seg/image/x-icon" href="CoT-Seg/image/cot_icon.png">
+    <link rel="stylesheet" href="CoT-Seg/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CoT-Seg/css/font_awesome.min.css">
+    <link rel="stylesheet" href="CoT-Seg/css/codemirror.min.css">
+    <link rel="stylesheet" href="CoT-Seg/css/app.css">
+
+    <script src="CoT-Seg/js/demo-frame.js"></script>
+</head>
+
+<body>
+    <div class="container" id="header" style="text-align: center; margin: auto;">
+        <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+            <h2 class="col-md-12 text-center" id="title">
+                CoT-Seg: Rethinking Segmentation with<br> Chain-of-Thought Reasoning and Self-Correction
+            </h2>
+            <div class="col-md-12 text-center" style="margin-top: 0; font-size: 1.5em;">
+                ArXiv 2025
+            </div>
+        </div>
+                <div class="author-list">
+                    <div class="author">
+                        <a href="https://danielshkao.github.io/">Shiu-hong Kao</a>
+                        <br>
+                        HKUST
+                    </div>
+                    <div class="author">
+                        <a href="">Chak-Ho Huang</a>
+                        <br>
+                        HKUST
+                    </div>
+                    <div class="author">
+                        <a href="">Huaiqian Liu</a>
+                        <br>
+                        HKUST
+                    </div>
+                    <div class="author">
+                        <a href="https://yuwingtai.github.io/">Yu-Wing Tai</a>
+                        <br>
+                        Dartmouth College
+                    </div>
+                    <div class="author">
+                        <a href="https://cse.hkust.edu.hk/~cktang/bio.html">Chi-Keung Tang</a>
+                        <br>
+                        HKUST
+                    </div>
+                </div>
+    </div>
+    <script>
+        document.getElementById('author-row').style.maxWidth = document.getElementById("title-row").clientWidth + 'px';
+    </script>
+    <div class="container" id="main">
+        <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="" target="_blank">
+                            <img src="CoT-Seg/image/paper_image.png" height="60px">
+                                <h4><strong>Preprint</strong></h4>
+                            </a>
+                        </li>                           
+                        <li>
+                            <a href="https://github.com/DanielSHKao/CoT-Seg" target="_blank">
+                            <img src="CoT-Seg/image/github.png" height="60px">
+                                <h4><strong>Code (Coming soon)</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                            <img src="CoT-Seg/image/real_database_icon.png" height="60px">
+                                <h4><strong>ReasonSeg-Hard Dataset (Coming soon)</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">  
+                <center>
+                    <div id="example-frame-1" class="example-frame">
+                        <div class="content">
+                            <div class="example active">
+                                <div class="description">
+                                    <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span><i>The first chair violinist of an orchestra is avital musical leader with widely ranging responsibilities, from tuning the orchestra to working closely with the conductor. Who is most likely the first violinist in the image? Please output the segmentationmask.</i></p>
+                                </div>
+                                <div class="images">
+                                    <img src="CoT-Seg/demo/unique_examples/opera.jpg" alt="Image 1A" width="40%">
+                                    <img src="CoT-Seg/demo/unique_examples/opera_result.jpg" alt="Image 1B" width="40%">
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="description">
+                                    <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span><i>Please identify the activity people are doing in the image and segment those individuals who have already demonstrated excellent body strength andstability through some kind of professional actions. Lastly, output the mask that includes these individuals.</i></p>
+                                </div>
+                                <div class="images">
+                                    <img src="CoT-Seg/demo/unique_examples/surf.jpg" alt="Image 2A" width="40%">
+                                    <img src="CoT-Seg/demo/unique_examples/surf_result.jpg" alt="Image 2B" width="40%">
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="description">
+                                    <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>I am looking for a gym equipment to do weight training on my arms muscles. Which equipment would most likely draw my attention when I walk into a gym? Please output the segmentation mask.</p>
+                                </div>
+                                <div class="images">
+                                    <img src="CoT-Seg/demo/unique_examples/gym.jpg" alt="Image 3A" width="40%">
+                                    <img src="CoT-Seg/demo/unique_examples/gym_result.jpg" alt="Image 3B" width="40%">
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="description">
+                                    <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Which objects are composed of a short bar with a weight on each end, typically used for weight training? Please find the unracked ones and output the segmentation mask.</p>
+                                </div>
+                                <div class="images">
+                                    <img src="CoT-Seg/demo/unique_examples/dumbbell.jpg" alt="Image 4A" width="40%">
+                                    <img src="CoT-Seg/demo/unique_examples/dumbbell_result.jpg" alt="Image 4B" width="40%">
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="description">
+                                    <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Please segment the person who is shooting in this NBA All-Star game.</p>
+                                </div>
+                                <div class="images">
+                                    <img src="CoT-Seg/demo/unique_examples/basketball.jpg" alt="Image 5A" width="40%">
+                                    <img src="CoT-Seg/demo/unique_examples/basketball_result.jpg" alt="Image 5B" width="40%">
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="description">
+                                    <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Please segment the food with the highest amount of vitamins.</p>
+                                </div>
+                                <div class="images">
+                                    <img src="CoT-Seg/demo/unique_examples/food.jpg" alt="Image 6A" width="40%">
+                                    <img src="CoT-Seg/demo/unique_examples/food_result.jpg" alt="Image 6B" width="40%">
+                                </div>
+                            </div>
+                            <div class="example">
+                                <div class="description">
+                                    <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>A person would like to recharge on some vitamins with fruit, however after a long day of school, they don't want to eat anything that would take too long to prepare, if we were to rank from most easy to hardest, what would be his last choice?</p>
+                                </div>
+                                <div class="images">
+                                    <img src="CoT-Seg/demo/unique_examples/fruit.jpeg" alt="Image 7A" width="30%">
+                                    <img src="CoT-Seg/demo/unique_examples/fruit_result.jpg" alt="Image 7B" width="30%">
+                                </div>
+                            </div>
+                            <div class="navigation">
+                                <button onclick="previousExample('example-frame-1')">Previous</button>
+                                <button onclick="nextExample('example-frame-1')">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                
+                </center> 
+                <h3>Abstract</h3>
+                <p class="text-justify" style="margin-top:1cm;">
+                    Reasoning segmentation is an emerging vision-language task that requires generating a segmentation mask from implicit and often ambiguous language queries, enabled by recent advances in Multimodal Large Language Models (MLLMs). However, state-of-the-art training-based approaches often fail in challenging cases that demand higher-level reasoning or external knowledge. In this work, we introduce <b>CoT-Seg</b>, a training-free framework that rethinks reasoning segmentation by combining <b>chain-of-thought reasoning</b> with <b>self-correction</b>. Instead of fine-tuning, CoT-Seg leverages the inherent reasoning ability of pre-trained MLLMs (<i>e.g.</i> GPT-4o) to decompose queries into meta-instructions, extract fine-grained semantics from images, and identify target objects even under implicit or complex prompts. Crucially, CoT-Seg incorporates a self-correction stage: the model evaluates its own segmentation against the original query and reasoning trace, identifies mismatches, and iteratively refines the mask. This tight integration of reasoning and correction significantly improves reliability and robustness, especially in ambiguous or error-prone cases. Furthermore, we extend CoT-Seg with <b>retrieval-augmented reasoning</b>, enabling the system to access external knowledge when the input lacks sufficient information, further enhancing segmentation accuracy. Extensive experiments on ReasonSeg and RefCOCO demonstrate that CoT-Seg consistently outperforms existing baselines while remaining training-free. Our results highlight that combining chain-of-thought reasoning, self-correction, and retrieval augmentation offers a powerful paradigm for advancing reasoning-driven segmentation.
+                </p>
+                <img src="CoT-Seg/image/method.jpg" class="img-responsive" alt="overview" style="max-width: 100%; height: auto; display: block; margin: auto;">
+            </div>
+            
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <hr>
+                    <h3>
+                        Self-refining process
+                    </h3>
+                    <center>
+                        <div id="example-frame-2" class="example-frame">
+                            <div class="content">
+                                <div class="example active">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Which item of jewelry in the picture has the potential to contain precious gemstones such as emeralds or turquoise?</p>
+                                    </div>
+                                    <div class="images">
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/1.jpg" alt="Image 1A" width="100%">
+                                            <figcaption>Input image</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/1_first.jpg" alt="Image 1B" width="100%">
+                                            <figcaption>First-turn result</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/1_refine.jpg" alt="Image 1C" width="100%">
+                                            <figcaption>Self-refinement result</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="example">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Please segment the crab.</p>
+                                    </div>
+                                    <div class="images">
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/2.jpg" alt="Image 2A" width="100%">
+                                            <figcaption>Input image</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/2_first.jpg" alt="Image 2B" width="100%">
+                                            <figcaption>First-turn result</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/2_refine.jpg" alt="Image 2C" width="100%">
+                                            <figcaption>Self-refinement result</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="example">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Please segment the fish.</p>
+                                    </div>
+                                    <div class="images">
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/3.jpg" alt="Image 3A" width="100%">
+                                            <figcaption>Input image</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/3_first.jpg" alt="Image 3B" width="100%">
+                                            <figcaption>First-turn result</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/3_refine.jpg" alt="Image 3C" width="100%">
+                                            <figcaption>Self-refinement result</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="example">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Please segment the pipefish in this image</p>
+                                    </div>
+                                    <div class="images">
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/4.jpg" alt="Image 4A" width="100%">
+                                            <figcaption>Input image</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/4_first.jpg" alt="Image 4B" width="100%">
+                                            <figcaption>First-turn result</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/4_refine.jpg" alt="Image 4C" width="100%">
+                                            <figcaption>Self-refinement result</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="example">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span> A fruit salad is a refreshing and delicious dessert that often consists of a variety of fruits mixed together. What object in the picture could be used to hold and serve such a dessert?</p>
+                                    </div>
+                                    <div class="images">
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/5.jpg" alt="Image 5A" width="100%">
+                                            <figcaption>Input image</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/5_first.jpg" alt="Image 5B" width="100%">
+                                            <figcaption>First-turn result</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/5_refine.jpg" alt="Image 5C" width="100%">
+                                            <figcaption>Self-refinement result</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="example">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>What is the object that the person in the picture is holding onto while walking his dog?</p>
+                                    </div>
+                                    <div class="images">
+                                        
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/6.jpg" alt="Image 6A" width="100%">
+                                            <figcaption>Input image</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/6_first.jpg" alt="Image 6B" width="100%">
+                                            <figcaption>First-turn result</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/6_refine.jpg" alt="Image 6C" width="100%">
+                                            <figcaption>Self-refinement result</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="example">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Please segment the leafy sea dragons in this image.</p>
+                                    </div>
+                                    <div class="images">
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/7.jpg" alt="Image 7A" width="100%">
+                                            <figcaption>Input image</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/7_first.jpg" alt="Image 7B" width="100%">
+                                            <figcaption>First-turn result</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="CoT-Seg/demo/refinement/7_refine.jpg" alt="Image 7C" width="100%">
+                                            <figcaption>Self-refinement result</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navigation">
+                                <button onclick="previousExample('example-frame-2')">Previous</button>
+                                <button onclick="nextExample('example-frame-2')">Next</button>
+                            </div>
+                        </div>
+                    </center>
+                    <p style="margin-top:1cm; margin-bottom:1cm">CoT-Seg introduces a self-correction stage: the
+                        model evaluates its own segmentation against the query and reasoning trace, identifies inconsistencies, and refines the output through automatically generated meta-queries. This feedback loop allows
+                        the system not only to think through the segmentation process but also to recognize and repair its
+                        own mistakes.
+                    </p>
+                    
+
+                    <hr>
+                    <h3>
+                        Retrieval-augmented reasoning
+                    </h3>
+                    <center>
+                        <div id="example-frame-3" class="example-frame">
+                            <div class="content">
+                                
+                                <div class="example active">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Please segment the Phyllobates Samperi. <span style="color: rgb(150, 150, 150);">(Note: A recently discovered species.)</span></p>
+                                    </div>
+                                    <div class="images">
+                                        <img src="CoT-Seg/demo/RA/frog.jpg" alt="Image 1A" width="40%">
+                                        <img src="CoT-Seg/demo/RA/frog_result.jpg" alt="Image 1B" width="40%">
+                                    </div>
+                                </div>
+                                <div class="example">
+                                    <div class="description">
+                                        <p><span style="color:brown; font-family: 'Lato', Verdana, Helvetica, sans-serif;">User: </span>Please segment the flag of the country that hosted the 2025 G7 summit. <span style="color: rgb(150, 150, 150);">(Note: GPT-4o has information up to the 2023 G7 summit.)</span></p>
+                                    </div>
+                                    <div class="images">
+                                        <img src="CoT-Seg/demo/RA/g7.jpg" alt="Image 2A" width="40%">
+                                        <img src="CoT-Seg/demo/RA/g7_result.jpg" alt="Image 2B" width="40%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navigation">
+                                <button onclick="previousExample('example-frame-3')">Previous</button>
+                                <button onclick="nextExample('example-frame-3')">Next</button>
+                            </div>
+                        </div>
+                    </center>
+                    <p style="margin-top:1cm; margin-bottom:1cm"> When the query and image
+                        lack sufficient information, CoT-Seg calls an external agent to retrieve relevant knowledge from the
+                        web, integrating it into the reasoning process. This augmentation further strengthens its ability to
+                        tackle ambiguous or knowledge-intensive cases. 
+                    </p>
+                    <h3>
+                        Flexible user controls
+                    </h3>
+                    <center>
+                        <img src="CoT-Seg/demo/multimodal.jpg" class="img-responsive" alt="overview" style="width: 90%; max-width: 800px; height: auto; display: block; margin: auto;">
+                    </center>
+                    <p style="margin-top:1cm; margin-bottom:1cm"> CoT-Seg supports diverse control types, such as scribble, bounding box, and point, allowing users to easily interact with.
+                    </p> 
+                    <hr>
+                    
+                    <p>Explore more results in our paper!</p>
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Citation
+                    </h3>
+                    <p>
+                        If you find our work useful in your research, please consider citing:
+                    </p>
+                    <div class="form-group col-md-12 col-md-offset-0">
+                        <textarea id="bibtex" class="form-control" readonly style="height: 160px;">
+@article{kao2025cotseg,
+    title={CoT-Seg: Rethinking Segmentation with Chain-of-Thought Reasoning and Self-Correction},
+    author={Kao, Shiu-hong and Huang, Chak-Ho and Liu, Huaiqian and Tai, Yu-Wing and Tang, Chi-Keung},
+    journal={arXiv preprint arXiv:xxxx.xxxxx},
+    year={2025}
+}
+    </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="//clustrmaps.com/map_v2.js?d=VN13Ch5-DnHNy30PNWUjRAFdG-VzNOLa-JDzukJQTuA&cl=ffffff&w=a"></script>
+</body>
+</html>
