@@ -115,9 +115,13 @@ table {
     width: 100%;
     border: 0px;
     border-spacing: 0px;
-    border-collapse: separate;
     margin-right: auto;
     margin-left: auto;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+ul {
+    font-size: 14px;
 }
 span.disable-links {
     pointer-events: none;
@@ -318,7 +322,51 @@ video.pub_video_phone{
     max-width: 230px;
     margin: auto;
 }
+.anchor-target {
+    /* Adjust this value to your header height */
+    scroll-margin-top: 80px; 
+}
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-start; /* Aligns to left with your bio */
+    margin-top: 15px;
+  }
 
+  /* Base Button Styling */
+  .btn {
+    display: inline-block;
+    /* Smaller padding: 8px vertical, 20px horizontal */
+    padding: 8px 20px; 
+    
+    /* Smaller Font */
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 13.5px; 
+    font-weight: 600;
+    
+    text-decoration: none !important;
+    border-radius: 50px; /* Keeps the sleek pill shape */
+    
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    
+    /* Thinner border for a lighter feel */
+    border: 1.5px solid #4a3728;
+  }
+
+  .btn-clay {
+    background-color: rgb(227, 237, 245) !important; /* Off-white/Beige */
+    color: #3285eb !important;
+    border: 2px solid #4a3728 !important;
+  }
+
+  .btn-clay:hover {
+    background-color: #f5edd6 !important; /* Slightly darker beige */
+    transform: translateY(-2px);
+    box-shadow: 0 3px 2px #663516;
+    color: rgb(49, 157, 207) !important;
+  }
 
 /*normal mode*/
 .desktop {
@@ -336,4 +384,34 @@ video.pub_video_phone{
     .phone {
         display: table-cell;
     }
+    .button-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn {
+        width: 100%;      /* Buttons take full width on mobile */
+        text-align: center;
+      }
   }
+  #scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(128, 128, 128, 0.7); /* Gray with transparency */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 0.5s ease-in-out; /* Animate opacity */
+    font-size: 24px; /* Increase font size for better visibility */
+    line-height: 1; /* Ensures the arrow is centered */
+}
+#scrollToTopBtn:hover {
+    background-color: rgba(128, 128, 128, 0.9); /* Darker gray */
+}
+body {
+    scroll-behavior: smooth;
+}
