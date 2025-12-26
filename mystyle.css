@@ -385,12 +385,14 @@ video.pub_video_phone{
         display: table-cell;
     }
     .button-row {
-        flex-direction: column;
-        align-items: flex-start;
+        gap: 8px; /* Tighter gap on mobile */
+        flex-wrap: wrap; /* Allows them to wrap if the screen is tiny */
       }
+    
       .btn {
-        width: 100%;      /* Buttons take full width on mobile */
-        text-align: center;
+        padding: 6px 14px; /* Significantly smaller padding */
+        font-size: 12px;    /* Smaller text for mobile */
+        border-width: 1px;  /* Thinner border for a cleaner look */
       }
   }
   #scrollToTopBtn {
