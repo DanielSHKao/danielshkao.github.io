@@ -394,6 +394,11 @@
             min-width: 0;
         }
 
+        .office-location-main,
+        .office-location-postal {
+            white-space: nowrap;
+        }
+
         .office-widget:hover,
         .office-widget:focus {
             color: var(--on-link);
@@ -1002,7 +1007,7 @@
                 <div class="action-row">
                     <a class="office-widget" href="https://www.google.com/maps/search/?api=1&query=AS6%2004-11%2C%20NUS%2C%20Singapore%20117416" target="_blank" rel="noopener" aria-label="Office location on Google Maps">
                         <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                        <span class="office-location">AS6 04-11, NUS, Singapore 117416</span>
+                        <span class="office-location"><span class="office-location-main">AS6 04-11, NUS,</span> <span class="office-location-postal">Singapore 117416</span></span>
                     </a>
                     <a class="button-link" href="src/shkao_CV.pdf" download><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
                 </div>
