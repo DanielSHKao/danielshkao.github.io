@@ -4,9 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Shiu-hong Kao">
-    <meta name="description" content="Personal academic homepage of Shiu-hong Kao, a PhD student at NUS working on computer vision, video understanding, and LLM/VLM reasoning.">
-    <title>Shiu-hong Kao</title>
+    <meta name="author" content="Shiu-Hong Kao">
+    <meta name="description" content="Personal academic homepage of Shiu-Hong Kao, a PhD student at NUS working on computer vision, video understanding, and LLM/VLM reasoning.">
+    <title>Shiu-Hong Kao</title>
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem("shkao-theme");
+                document.documentElement.dataset.theme = savedTheme === "dark" ? "dark" : "light";
+            } catch {
+                document.documentElement.dataset.theme = "light";
+            }
+        })();
+    </script>
     <link rel="icon" href="src/icon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,16 +25,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
     <style>
         :root {
+            color-scheme: light;
             --page: #f6f8fb;
             --panel: #ffffff;
             --ink: #1d2838;
             --muted: #5f6f84;
             --line: #dde5ef;
             --link: #285c9f;
+            --link-hover: #163c70;
             --link-soft: #e9f1fb;
             --accent: #8a6f2a;
             --green: #28705a;
             --shadow: 0 12px 30px rgba(31, 45, 61, 0.08);
+            --topbar-bg: rgba(255, 255, 255, 0.88);
+            --topbar-border: rgba(221, 229, 239, 0.85);
+            --button-bg: #fbfdff;
+            --soft-bg: #f8fbff;
+            --faint-line: #edf1f6;
+            --media-bg: #edf2f7;
+            --media-border: #dfe7f0;
+            --chip-bg: #eef6f3;
+            --chip-border: #d6e7e0;
+            --chip-ink: #274155;
+            --on-link: #ffffff;
+            --to-top-bg: rgba(40, 92, 159, 0.82);
+        }
+
+        :root[data-theme="dark"] {
+            color-scheme: dark;
+            --page: #111827;
+            --panel: #182235;
+            --ink: #edf4ff;
+            --muted: #a7b4c7;
+            --line: #2b3a50;
+            --link: #8cbcff;
+            --link-hover: #bdd7ff;
+            --link-soft: #24344e;
+            --accent: #dbc37a;
+            --green: #7ed7b8;
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.30);
+            --topbar-bg: rgba(17, 24, 39, 0.90);
+            --topbar-border: rgba(69, 85, 108, 0.75);
+            --button-bg: #202c42;
+            --soft-bg: #202c42;
+            --faint-line: #26364d;
+            --media-bg: #202c42;
+            --media-border: #2b3a50;
+            --chip-bg: #20382f;
+            --chip-border: #315847;
+            --chip-ink: #c9f4e5;
+            --on-link: #ffffff;
+            --to-top-bg: rgba(91, 141, 210, 0.85);
         }
 
         * {
@@ -51,7 +102,7 @@
 
         a:hover,
         a:focus {
-            color: #163c70;
+            color: var(--link-hover);
             text-decoration: underline;
         }
 
@@ -65,8 +116,8 @@
             position: sticky;
             top: 0;
             z-index: 20;
-            border-bottom: 1px solid rgba(221, 229, 239, 0.85);
-            background: rgba(255, 255, 255, 0.88);
+            border-bottom: 1px solid var(--topbar-border);
+            background: var(--topbar-bg);
             backdrop-filter: blur(16px);
         }
 
@@ -94,6 +145,14 @@
             flex-wrap: nowrap;
             justify-content: flex-end;
             white-space: nowrap;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            min-width: 0;
         }
 
         .nav-links a {
@@ -171,6 +230,27 @@
             text-decoration: none;
         }
 
+        .theme-toggle {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            color: var(--muted);
+            background: var(--link-soft);
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .theme-toggle:hover,
+        .theme-toggle:focus {
+            color: var(--ink);
+            background: var(--button-bg);
+        }
+
         .page {
             max-width: 1120px;
             margin: 0 auto;
@@ -208,7 +288,7 @@
             margin: 0 auto 16px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #fff;
+            border: 4px solid var(--panel);
             box-shadow: 0 0 0 1px var(--line), 0 10px 24px rgba(31, 45, 61, 0.16);
         }
 
@@ -270,7 +350,7 @@
 
         .icon-link:hover,
         .icon-link:focus {
-            color: white;
+            color: var(--on-link);
             background: var(--link);
             text-decoration: none;
         }
@@ -291,20 +371,20 @@
             border-radius: 7px;
             color: var(--ink);
             border: 1px solid var(--line);
-            background: #fbfdff;
+            background: var(--button-bg);
             font-weight: 700;
             font-size: 14px;
         }
 
         .button-link.primary {
-            color: white;
+            color: var(--on-link);
             border-color: var(--link);
             background: var(--link);
         }
 
         .button-link:hover,
         .button-link:focus {
-            color: white;
+            color: var(--on-link);
             background: var(--link);
             border-color: var(--link);
             text-decoration: none;
@@ -372,7 +452,7 @@
             padding: 3px;
             border: 1px solid var(--line);
             border-radius: 8px;
-            background: #f8fbff;
+            background: var(--soft-bg);
         }
 
         .bio-toggle {
@@ -389,7 +469,7 @@
         }
 
         .bio-toggle.active {
-            color: white;
+            color: var(--on-link);
             background: var(--link);
         }
 
@@ -409,9 +489,9 @@
             align-items: center;
             gap: 6px;
             padding: 5px 9px;
-            color: #274155;
-            background: #eef6f3;
-            border: 1px solid #d6e7e0;
+            color: var(--chip-ink);
+            background: var(--chip-bg);
+            border: 1px solid var(--chip-border);
             border-radius: 7px;
             font-size: 13px;
             font-weight: 700;
@@ -426,7 +506,7 @@
             grid-template-columns: 92px minmax(0, 1fr);
             gap: 12px;
             padding: 10px 0;
-            border-bottom: 1px solid #edf1f6;
+            border-bottom: 1px solid var(--faint-line);
         }
 
         .news-item:last-child {
@@ -462,8 +542,8 @@
             aspect-ratio: 4 / 3;
             overflow: hidden;
             border-radius: 7px;
-            background: #edf2f7;
-            border: 1px solid #dfe7f0;
+            background: var(--media-bg);
+            border: 1px solid var(--media-border);
         }
 
         .publication-media img,
@@ -508,7 +588,7 @@
         }
 
         .me {
-            color: #111827;
+            color: var(--ink);
             font-weight: 900;
             text-decoration: underline;
             text-decoration-thickness: 1px;
@@ -535,14 +615,14 @@
             padding: 4px 8px;
             border-radius: 7px;
             background: var(--link-soft);
-            border: 1px solid #d8e7f7;
+            border: 1px solid var(--media-border);
             font-size: 13px;
             font-weight: 700;
         }
 
         .pub-links a:hover,
         .pub-links a:focus {
-            color: white;
+            color: var(--on-link);
             background: var(--link);
             border-color: var(--link);
             text-decoration: none;
@@ -561,7 +641,7 @@
             min-height: 38px;
             padding: 8px 12px;
             color: var(--ink);
-            background: #fbfdff;
+            background: var(--button-bg);
             border: 1px solid var(--line);
             border-radius: 7px;
             font-size: 14px;
@@ -576,7 +656,7 @@
 
         .view-all-button:hover,
         .view-all-button:focus {
-            color: white;
+            color: var(--on-link);
             background: var(--link);
             border-color: var(--link);
             text-decoration: none;
@@ -603,7 +683,7 @@
 
         .timeline li {
             padding: 10px 0;
-            border-bottom: 1px solid #edf1f6;
+            border-bottom: 1px solid var(--faint-line);
         }
 
         .timeline li:last-child {
@@ -627,8 +707,8 @@
 
         .experience-entry {
             display: grid;
-            grid-template-columns: 94px minmax(0, 1fr);
-            gap: 18px;
+            grid-template-columns: 126px minmax(0, 1fr);
+            gap: 22px;
             padding: 16px 0;
             border-bottom: 1px solid var(--line);
         }
@@ -643,13 +723,13 @@
         }
 
         .org-logo {
-            width: 94px;
+            width: 126px;
             aspect-ratio: 4 / 3;
             object-fit: contain;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid var(--line);
             border-radius: 7px;
-            background: #fbfdff;
+            background: var(--button-bg);
         }
 
         .two-column-list {
@@ -681,8 +761,8 @@
             height: 42px;
             border: 0;
             border-radius: 7px;
-            color: white;
-            background: rgba(40, 92, 159, 0.82);
+            color: var(--on-link);
+            background: var(--to-top-bg);
             cursor: pointer;
             opacity: 0;
             pointer-events: none;
@@ -740,7 +820,7 @@
             }
         }
 
-        @media (max-width: 760px) {
+        @media (max-width: 840px) {
             .nav-inner {
                 gap: 10px;
             }
@@ -835,33 +915,38 @@
 <body>
     <header class="topbar">
         <nav class="nav-inner" aria-label="Primary navigation">
-            <a class="brand" href="#">Shiu-hong Kao</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#news">News</a>
-                <a href="#publications">Publications</a>
-                <a href="#experience">Experience</a>
-                <a href="#awards">Awards</a>
-            </div>
-            <details class="nav-menu">
-                <summary><i class="fa-solid fa-bars"></i> Menu</summary>
-                <div class="nav-menu-panel">
+            <a class="brand" href="#">Shiu-Hong Kao</a>
+            <div class="nav-controls">
+                <div class="nav-links">
                     <a href="#about">About</a>
                     <a href="#news">News</a>
                     <a href="#publications">Publications</a>
                     <a href="#experience">Experience</a>
                     <a href="#awards">Awards</a>
                 </div>
-            </details>
+                <details class="nav-menu">
+                    <summary><i class="fa-solid fa-bars"></i> Menu</summary>
+                    <div class="nav-menu-panel">
+                        <a href="#about">About</a>
+                        <a href="#news">News</a>
+                        <a href="#publications">Publications</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#awards">Awards</a>
+                    </div>
+                </details>
+                <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
     <main class="page">
         <aside class="sidebar">
             <div class="panel profile">
-                <img class="portrait" src="src/profile-2.jpg" alt="Portrait of Shiu-hong Kao">
+                <img class="portrait" src="src/profile-2.jpg" alt="Portrait of Shiu-Hong Kao">
                 <div class="profile-main">
-                    <h1>Shiu-hong Kao <span class="name-cn">(高旭宏)</span></h1>
+                    <h1>Shiu-Hong Kao <span class="name-cn">(高旭宏)</span></h1>
                     <p class="role">PhD Student in Computer Science<br>National University of Singapore</p>
                     <div class="profile-links" aria-label="Profile links">
                         <a class="icon-link" href="mailto:shkao@u.nus.edu" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -892,12 +977,12 @@
                 </div>
                 <div class="bio-panel" data-bio-panel="short">
                     <p>
-                        Shiu-hong Kao is a first-year PhD student in <a href="https://www.comp.nus.edu.sg/programmes/pg/phdcs/" target="_blank" rel="noopener">Computer Science</a> in the <a href="https://cvml.comp.nus.edu.sg/" target="_blank" rel="noopener">CVML Group</a> at <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">National University of Singapore (NUS)</a>, advised by Prof. <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank" rel="noopener">Angela Yao</a>. His research focuses on <strong>video understanding</strong>, <strong>reasoning segmentation</strong>, and <strong>LLM/VLM reasoning</strong>.
+                        Shiu-Hong Kao is a first-year PhD student in <a href="https://www.comp.nus.edu.sg/programmes/pg/phdcs/" target="_blank" rel="noopener">Computer Science</a> in the <a href="https://cvml.comp.nus.edu.sg/" target="_blank" rel="noopener">CVML Group</a> at <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">National University of Singapore (NUS)</a>, advised by Prof. <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank" rel="noopener">Angela Yao</a>. His research focuses on <strong>video understanding</strong>, <strong>reasoning segmentation</strong>, and <strong>LLM/VLM reasoning</strong>.
                     </p>
                 </div>
                 <div class="bio-panel" data-bio-panel="long" hidden>
                     <p>
-                        Shiu-hong Kao is a first-year PhD student in <a href="https://www.comp.nus.edu.sg/programmes/pg/phdcs/" target="_blank" rel="noopener">Computer Science</a> in the <a href="https://cvml.comp.nus.edu.sg/" target="_blank" rel="noopener">CVML Group</a> at <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">National University of Singapore (NUS)</a>, advised by Prof. <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank" rel="noopener">Angela Yao</a>. His research sits at the intersection of deep learning and computer vision, with a focus on <strong>video understanding</strong>, <strong>reasoning segmentation</strong>, and <strong>LLM/VLM reasoning</strong>.
+                        Shiu-Hong Kao is a first-year PhD student in <a href="https://www.comp.nus.edu.sg/programmes/pg/phdcs/" target="_blank" rel="noopener">Computer Science</a> in the <a href="https://cvml.comp.nus.edu.sg/" target="_blank" rel="noopener">CVML Group</a> at <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">National University of Singapore (NUS)</a>, advised by Prof. <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank" rel="noopener">Angela Yao</a>. His research sits at the intersection of deep learning and computer vision, with a focus on <strong>video understanding</strong>, <strong>reasoning segmentation</strong>, and <strong>LLM/VLM reasoning</strong>.
                     </p>
                     <p>
                         He received the <a href="https://cse.hkust.edu.hk/pg/" target="_blank" rel="noopener">M.Phil.</a> in Computer Science and Engineering from the Hong Kong University of Science and Technology (<a href="https://hkust.edu.hk/" target="_blank" rel="noopener">HKUST</a>) under the supervision of Prof. <a href="http://www.cs.ust.hk/~cktang" target="_blank" rel="noopener">Chi-Keung Tang</a>, collaborating closely with Prof. <a href="https://yuwingtai.github.io/" target="_blank" rel="noopener">Yu-Wing Tai</a> from <a href="https://home.dartmouth.edu/" target="_blank" rel="noopener">Dartmouth College</a>. He also conducted research in 3D reconstruction and interned in the Media Computing Group at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank" rel="noopener">Microsoft Research Asia</a>, working with Dr. <a href="https://pableeto.github.io/" target="_blank" rel="noopener">Xiao Li</a> and Dr. <a href="https://jingluw.github.io/" target="_blank" rel="noopener">Jinglu Wang</a>.
@@ -905,7 +990,7 @@
                     <p>
                         Before graduate school, he earned a Bachelor of Science degree from HKUST, double-majoring in <a href="https://dsct.hkust.edu.hk/" target="_blank" rel="noopener">Data Science and Technology</a> and <a href="https://cse.hkust.edu.hk/bsc/" target="_blank" rel="noopener">Computer Science</a>. He completed his undergraduate thesis in Prof. <a href="https://www.cse.ust.hk/~gchan/" target="_blank" rel="noopener">Shueng-Han Gary Chan</a>'s lab, in cooperation with Dr. <a href="https://jierunchen.github.io/" target="_blank" rel="noopener">Jierun Chen</a>.
                     </p>
-                    <p class="small-note"><strong>About his name:</strong> He goes by Daniel in daily life. His Chinese name, Shiu-hong, is typically used only in official documents and publications. In mainland China, he is sometimes referred to as Xuhong, based on a different homophonic transliteration system.</p>
+                    <p class="small-note"><strong>About his name:</strong> He goes by Daniel in daily life. His Chinese name, Shiu-Hong, is typically used only in official documents and publications. In mainland China, he is sometimes referred to as Xuhong, based on a different homophonic transliteration system.</p>
                 </div>
                 <div class="research-tags" aria-label="Research interests">
                     <span class="tag"><i class="fa-solid fa-video"></i> Video Understanding</span>
@@ -962,7 +1047,7 @@
                     </div>
                     <div>
                         <h3 class="pub-title">CoT-RVS: Zero-Shot Chain-of-Thought Reasoning Segmentation for Videos</h3>
-                        <p class="authors"><span class="me">Shiu-hong Kao</span>, Yu-Wing Tai, Chi-Keung Tang</p>
+                        <p class="authors"><span class="me">Shiu-Hong Kao</span>, Yu-Wing Tai, Chi-Keung Tang</p>
                         <p class="venue">International Conference on Learning Representations (ICLR), 2026</p>
                         <p class="abstract">We propose CoT-RVS to extract the temporal-semantic correlation in videos with chain of thoughts and achieve the state-of-the-art performance for reasoning video segmentation.</p>
                         <div class="pub-links">
@@ -980,7 +1065,7 @@
                     </div>
                     <div>
                         <h3 class="pub-title">CoT-Seg: Rethinking Segmentation with Chain-of-Thought Reasoning and Self-Correction</h3>
-                        <p class="authors"><span class="me">Shiu-hong Kao*</span>, Chak-Ho Huang*, Huaiqian Liu*, Yu-Wing Tai, Chi-Keung Tang</p>
+                        <p class="authors"><span class="me">Shiu-Hong Kao*</span>, Chak-Ho Huang*, Huaiqian Liu*, Yu-Wing Tai, Chi-Keung Tang</p>
                         <p class="venue">ICLR 2026 Workshop on AI with Recursive Self-Improvement (RSI 2026)</p>
                         <p class="abstract"><em>*Equal contribution.</em> We propose CoT-Seg, a modular reasoning segmentation framework that significantly improves the quality of segmentation masks with chain-of-thought reasoning and a self-correction loop.</p>
                         <div class="pub-links">
@@ -1001,7 +1086,7 @@
                     </div>
                     <div>
                         <h3 class="pub-title">StreamGS: Online Generalizable Gaussian Splatting Reconstruction for Unposed Image Streams</h3>
-                        <p class="authors">Yang Li, Jinglu Wang, Lei Chu, Xiao Li, <span class="me">Shiu-hong Kao</span>, Yingcong Chen, Yan Lu</p>
+                        <p class="authors">Yang Li, Jinglu Wang, Lei Chu, Xiao Li, <span class="me">Shiu-Hong Kao</span>, Yingcong Chen, Yan Lu</p>
                         <p class="venue">International Conference on Computer Vision (ICCV), 2025</p>
                         <p class="abstract">We propose StreamGS, an online generalizable 3DGS reconstruction method for unposed image streams, which progressively transforms image streams to 3D Gaussian streams by predicting and aggregating per-frame Gaussians.</p>
                         <div class="pub-links">
@@ -1086,11 +1171,35 @@
 
     <footer class="footer">
         <hr>
-        <div>&copy; Shiu-hong Kao | Last updated: Jun. 2026.</div>
+        <div>&copy; Shiu-Hong Kao | Last updated: Jun. 2026.</div>
         <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6c4505cf7064430482cdf6e1188681c0"}'></script>
     </footer>
 
     <script>
+        const themeToggle = document.querySelector(".theme-toggle");
+        const themeIcon = themeToggle?.querySelector("i");
+        const applyTheme = (theme) => {
+            const nextTheme = theme === "dark" ? "dark" : "light";
+            document.documentElement.dataset.theme = nextTheme;
+            try {
+                localStorage.setItem("shkao-theme", nextTheme);
+            } catch {}
+
+            if (!themeToggle || !themeIcon) return;
+
+            const darkMode = nextTheme === "dark";
+            themeIcon.classList.toggle("fa-moon", !darkMode);
+            themeIcon.classList.toggle("fa-sun", darkMode);
+            const label = darkMode ? "Switch to light mode" : "Switch to dark mode";
+            themeToggle.setAttribute("aria-label", label);
+            themeToggle.setAttribute("title", label);
+        };
+
+        applyTheme(document.documentElement.dataset.theme);
+        themeToggle?.addEventListener("click", () => {
+            applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+        });
+
         const topButton = document.querySelector(".to-top");
         window.addEventListener("scroll", () => {
             topButton.classList.toggle("visible", window.scrollY > 450);
