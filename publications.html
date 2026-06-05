@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Publications page adapted from https://github.com/luost26/academic-homepage -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Shiu-hong Kao">
+    <meta name="description" content="Publications by Shiu-hong Kao.">
+    <title>Publications - Shiu-hong Kao</title>
+    <link rel="icon" href="src/icon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --page: #f6f8fb;
+            --panel: #ffffff;
+            --ink: #1d2838;
+            --muted: #5f6f84;
+            --line: #dde5ef;
+            --link: #285c9f;
+            --link-soft: #e9f1fb;
+            --accent: #8a6f2a;
+            --shadow: 0 12px 30px rgba(31, 45, 61, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--page);
+            color: var(--ink);
+            font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 16px;
+            line-height: 1.62;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            color: #163c70;
+            text-decoration: underline;
+        }
+
+        img,
+        video {
+            display: block;
+            max-width: 100%;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            border-bottom: 1px solid rgba(221, 229, 239, 0.85);
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            color: var(--ink);
+            font-size: 18px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 700;
+            padding: 7px 10px;
+            border-radius: 7px;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--ink);
+            background: var(--link-soft);
+            text-decoration: none;
+        }
+
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 32px 24px 48px;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-panel {
+            padding: 26px;
+        }
+
+        .page-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.18;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            margin: 8px 0 0;
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 38px;
+            padding: 8px 12px;
+            color: var(--ink);
+            background: #fbfdff;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .back-link:hover,
+        .back-link:focus {
+            color: white;
+            background: var(--link);
+            border-color: var(--link);
+            text-decoration: none;
+        }
+
+        .year-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .year-nav a {
+            display: inline-flex;
+            min-height: 32px;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 7px;
+            background: var(--link-soft);
+            border: 1px solid #d8e7f7;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .year-nav a:hover,
+        .year-nav a:focus {
+            color: white;
+            background: var(--link);
+            border-color: var(--link);
+            text-decoration: none;
+        }
+
+        .year-block {
+            scroll-margin-top: 82px;
+            padding-top: 8px;
+        }
+
+        .year-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 10px 0 4px;
+            color: var(--accent);
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .year-heading::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: var(--line);
+        }
+
+        .publication {
+            display: grid;
+            grid-template-columns: 190px minmax(0, 1fr);
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .year-block .publication:last-child {
+            border-bottom: 0;
+        }
+
+        .publication-media {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 7px;
+            background: #edf2f7;
+            border: 1px solid #dfe7f0;
+        }
+
+        .publication-media img,
+        .publication-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .publication-media video {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 160ms ease;
+        }
+
+        .publication-media:hover video,
+        .publication-media:focus-within video {
+            opacity: 1;
+        }
+
+        .pub-title {
+            margin: 0 0 4px;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .authors,
+        .venue,
+        .abstract {
+            margin: 0;
+        }
+
+        .authors,
+        .venue {
+            font-size: 14px;
+        }
+
+        .venue {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .me {
+            color: #111827;
+            font-weight: 900;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .abstract {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 10px;
+        }
+
+        .pub-links a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            padding: 4px 8px;
+            border-radius: 7px;
+            background: var(--link-soft);
+            border: 1px solid #d8e7f7;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .pub-links a:hover,
+        .pub-links a:focus {
+            color: white;
+            background: var(--link);
+            border-color: var(--link);
+            text-decoration: none;
+        }
+
+        .footer {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px 38px;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .to-top {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 7px;
+            color: white;
+            background: rgba(40, 92, 159, 0.82);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 160ms ease, background 160ms ease;
+        }
+
+        .to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .to-top:hover,
+        .to-top:focus {
+            background: var(--link);
+        }
+
+        @media (max-width: 720px) {
+            .nav-inner,
+            .page,
+            .footer {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .nav-inner,
+            .page-head {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+            }
+
+            .section-panel {
+                padding: 20px;
+            }
+
+            .publication {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-media {
+                max-width: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <nav class="nav-inner" aria-label="Primary navigation">
+            <a class="brand" href="index.html">Shiu-hong Kao</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a class="active" href="publications.html">Publications</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="panel section-panel">
+            <div class="page-head">
+                <div>
+                    <h1>Publications</h1>
+                    <p class="subtitle">Full publication list, grouped by year.</p>
+                </div>
+                <a class="back-link" href="index.html#publications"><i class="fa-solid fa-arrow-left"></i> Back to homepage</a>
+            </div>
+
+            <nav class="year-nav" aria-label="Publication years">
+                <a href="#y2026">2026</a>
+                <a href="#y2025">2025</a>
+                <a href="#y2024">2024</a>
+                <a href="#y2023">2023</a>
+            </nav>
+
+            <div id="y2026" class="year-block">
+                <h2 class="year-heading">2026</h2>
+
+                <article class="publication">
+                    <div class="publication-media media-hover">
+                        <img src="src/thinkvideo.png" alt="CoT-RVS teaser">
+                        <video muted loop playsinline preload="metadata" aria-label="CoT-RVS video teaser">
+                            <source src="src/thinkvideo-small.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div>
+                        <h3 class="pub-title">CoT-RVS: Zero-Shot Chain-of-Thought Reasoning Segmentation for Videos</h3>
+                        <p class="authors"><span class="me">Shiu-hong Kao</span>, Yu-Wing Tai, Chi-Keung Tang</p>
+                        <p class="venue">International Conference on Learning Representations (ICLR), 2026</p>
+                        <p class="abstract">CoT-RVS extracts temporal-semantic correlation in videos with chain of thoughts and achieves state-of-the-art performance for reasoning video segmentation.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2505.18561" target="_blank" rel="noopener">arXiv</a>
+                            <a href="cot-rvs.html">Project</a>
+                            <a href="https://github.com/DanielSHKao/CoT-RVS" target="_blank" rel="noopener">Code</a>
+                            <a href="https://github.com/DanielSHKao/CoT-RVS/tree/main/T-ReasonVOS" target="_blank" rel="noopener">Data</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-media">
+                        <img src="src/cot-seg.jpg" alt="CoT-Seg teaser">
+                    </div>
+                    <div>
+                        <h3 class="pub-title">CoT-Seg: Rethinking Segmentation with Chain-of-Thought Reasoning and Self-Correction</h3>
+                        <p class="authors"><span class="me">Shiu-hong Kao*</span>, Chak-Ho Huang*, Huaiqian Liu*, Yu-Wing Tai, Chi-Keung Tang</p>
+                        <p class="venue">ICLR 2026 Workshop on AI with Recursive Self-Improvement (RSI 2026)</p>
+                        <p class="abstract"><em>*Equal contribution.</em> CoT-Seg is a modular reasoning segmentation framework that improves segmentation masks with chain-of-thought reasoning and a self-correction loop.</p>
+                        <div class="pub-links">
+                            <a href="http://arxiv.org/abs/2601.17420" target="_blank" rel="noopener">arXiv</a>
+                            <a href="cot-seg.html">Project</a>
+                            <a href="https://github.com/DanielSHKao/CoT-Seg" target="_blank" rel="noopener">Code</a>
+                            <a href="https://github.com/DanielSHKao/CoT-Seg/tree/main/dataset" target="_blank" rel="noopener">Data</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div id="y2025" class="year-block">
+                <h2 class="year-heading">2025</h2>
+
+                <article class="publication">
+                    <div class="publication-media media-hover">
+                        <img src="src/streamgs_teaser.png" alt="StreamGS teaser">
+                        <video muted loop playsinline preload="metadata" aria-label="StreamGS video teaser">
+                            <source src="src/streamgs.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div>
+                        <h3 class="pub-title">StreamGS: Online Generalizable Gaussian Splatting Reconstruction for Unposed Image Streams</h3>
+                        <p class="authors">Yang Li, Jinglu Wang, Lei Chu, Xiao Li, <span class="me">Shiu-hong Kao</span>, Yingcong Chen, Yan Lu</p>
+                        <p class="venue">International Conference on Computer Vision (ICCV), 2025</p>
+                        <p class="abstract">StreamGS is an online generalizable 3DGS reconstruction method for unposed image streams, progressively transforming image streams to 3D Gaussian streams.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2503.06235" target="_blank" rel="noopener">arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-media">
+                        <img src="src/thinkfirst.png" alt="ThinkFirst teaser">
+                    </div>
+                    <div>
+                        <h3 class="pub-title">Think Before You Segment: High-Quality Reasoning Segmentation with GPT Chain of Thoughts</h3>
+                        <p class="authors"><span class="me">Shiu-hong Kao</span>, Yu-Wing Tai, Chi-Keung Tang</p>
+                        <p class="venue">Arxiv preprint, 2025</p>
+                        <p class="abstract">ThinkFirst is a Chain-of-Thought reasoning segmentation framework that generates accurate object masks from text prompts and handles difficult query scenarios.</p>
+                        <div class="pub-links">
+                            <a href="http://arxiv.org/abs/2503.07503" target="_blank" rel="noopener">arXiv</a>
+                            <a href="thinkfirst.html">Project</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-media">
+                        <img src="src/igct.png" alt="iGCT teaser">
+                    </div>
+                    <div>
+                        <h3 class="pub-title">Beyond and Free from Diffusion: Invertible Guided Consistency Training</h3>
+                        <p class="authors">Chia-Hong Hsu, <span class="me">Shiu-hong Kao</span>, Randall Balestriero</p>
+                        <p class="venue">Arxiv preprint, 2025</p>
+                        <p class="abstract">Invertible Guided Consistency Training is a data-driven framework for guided consistency models, supporting fast image generation and editing without diffusion-model distillation.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2502.05391" target="_blank" rel="noopener">arXiv</a>
+                            <a href="https://swimmincatt35.github.io/iGCT/" target="_blank" rel="noopener">Project</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-media media-hover">
+                        <img src="src/uvrm_teaser.jpg" alt="UVRM teaser">
+                        <video muted loop playsinline preload="metadata" aria-label="UVRM video teaser">
+                            <source src="src/uvrm.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div>
+                        <h3 class="pub-title">UVRM: A Scalable 3D Reconstruction Model from Unposed Videos</h3>
+                        <p class="authors"><span class="me">Shiu-hong Kao</span>, Xiao Li, Jinglu Wang, Yang Li, Chi-Keung Tang, Yu-Wing Tai, Yan Lu</p>
+                        <p class="venue">Arxiv preprint, 2025</p>
+                        <p class="abstract">UVRM is a 3D reconstruction model trained and evaluated on 360-degree monocular videos without requiring pose information.</p>
+                        <div class="pub-links">
+                            <a href="http://arxiv.org/abs/2501.09347" target="_blank" rel="noopener">arXiv</a>
+                            <a href="src/uvrm_demo.mp4" target="_blank">Demo</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div id="y2024" class="year-block">
+                <h2 class="year-heading">2024</h2>
+
+                <article class="publication">
+                    <div class="publication-media media-hover">
+                        <img src="src/deceptivehuman.png" alt="InceptionHuman teaser">
+                        <video muted loop playsinline preload="metadata" aria-label="InceptionHuman video teaser">
+                            <source src="src/deceptivehuman.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div>
+                        <h3 class="pub-title">InceptionHuman: Controllable Prompt-to-NeRF for Photorealistic 3D Human Generation</h3>
+                        <p class="authors"><span class="me">Shiu-hong Kao</span>, Xinhang Liu, Yu-Wing Tai, Chi-Keung Tang</p>
+                        <p class="venue">Arxiv preprint, 2024</p>
+                        <p class="abstract">InceptionHuman is a NeRF-based generative framework using diffusion models and flexible prompts such as text, pose, and style to generate realistic 3D humans.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2311.16499" target="_blank" rel="noopener">arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-media media-hover">
+                        <img src="src/deceptivenerf.png" alt="Deceptive-NeRF teaser">
+                        <video muted loop playsinline preload="metadata" aria-label="Deceptive-NeRF video teaser">
+                            <source src="src/deceptivenerf.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div>
+                        <h3 class="pub-title">Diffusion-Generated Pseudo-Observations for High-Quality Sparse-View Reconstruction</h3>
+                        <p class="authors">Xinhang Liu, Jiaben Chen, <span class="me">Shiu-hong Kao</span>, Yu-Wing Tai, Chi-Keung Tang</p>
+                        <p class="venue">European Conference on Computer Vision (ECCV), 2024</p>
+                        <p class="abstract">Deceptive-NeRF/3DGS improves sparse-view reconstruction by using synthetically generated pseudo-observations to reduce artifacts and improve quality.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2305.15171" target="_blank" rel="noopener">arXiv</a>
+                            <a href="https://deceptive-nerf.github.io/" target="_blank" rel="noopener">Project</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div id="y2023" class="year-block">
+                <h2 class="year-heading">2023</h2>
+
+                <article class="publication">
+                    <div class="publication-media">
+                        <img src="src/StableKD.png" alt="StableKD teaser">
+                    </div>
+                    <div>
+                        <h3 class="pub-title">StableKD: Breaking Inter-block Optimization Entanglement for Stable Knowledge Distillation</h3>
+                        <p class="authors"><span class="me">Shiu-hong Kao</span>*, Jierun Chen*, S.-H. Gary Chan</p>
+                        <p class="venue">Arxiv preprint, 2023</p>
+                        <p class="abstract"><em>*Equal contribution.</em> StableKD addresses Inter-block Optimization Entanglement in end-to-end knowledge distillation and improves stability, convergence, and data efficiency.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2312.13223" target="_blank" rel="noopener">arXiv</a>
+                            <a href="https://github.com/DanielSHKao/StableKD" target="_blank" rel="noopener">Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-media">
+                        <img src="src/pconv.png" alt="FasterNet teaser">
+                    </div>
+                    <div>
+                        <h3 class="pub-title">Run, Don't Walk: Chasing Higher FLOPS for Faster Neural Networks</h3>
+                        <p class="authors">Jierun Chen, <span class="me">Shiu-hong Kao</span>, Hao He, Weipeng Zhuo, Song Wen, Chul-Ho Lee, S.-H. Gary Chan</p>
+                        <p class="venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023</p>
+                        <p class="abstract">This work proposes partial convolution (PConv) and FasterNet, a latency-efficient family of neural network architectures.</p>
+                        <div class="pub-links">
+                            <a href="https://openaccess.thecvf.com/content/CVPR2023/html/Chen_Run_Dont_Walk_Chasing_Higher_FLOPS_for_Faster_Neural_Networks_CVPR_2023_paper.html" target="_blank" rel="noopener">Paper</a>
+                            <a href="https://github.com/JierunChen/FasterNet" target="_blank" rel="noopener">Code</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <button class="to-top" type="button" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <footer class="footer">
+        <hr>
+        <div>&copy; Shiu-hong Kao | Last updated: Jun. 2026.</div>
+    </footer>
+
+    <script>
+        const topButton = document.querySelector(".to-top");
+        window.addEventListener("scroll", () => {
+            topButton.classList.toggle("visible", window.scrollY > 450);
+        });
+        topButton.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        document.querySelectorAll(".media-hover").forEach((media) => {
+            const video = media.querySelector("video");
+            if (!video) return;
+
+            const play = () => video.play().catch(() => {});
+            const stop = () => {
+                video.pause();
+                video.currentTime = 0;
+            };
+
+            media.addEventListener("mouseenter", play);
+            media.addEventListener("mouseleave", stop);
+            media.addEventListener("focusin", play);
+            media.addEventListener("focusout", stop);
+        });
+    </script>
+</body>
+</html>
