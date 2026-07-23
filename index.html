@@ -799,6 +799,24 @@
             text-align: center;
         }
 
+        .visitor-globe {
+            width: min(150px, 40vw);
+            margin: 18px auto 0;
+            line-height: 0;
+        }
+
+        .visitor-globe > *,
+        .visitor-globe a,
+        .visitor-globe canvas,
+        .visitor-globe iframe,
+        .visitor-globe img {
+            display: block;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            margin: 0 auto;
+        }
+
         .to-top {
             position: fixed;
             right: 18px;
@@ -883,6 +901,11 @@
         @media (max-width: 640px) {
             body {
                 font-size: 15px;
+            }
+
+            .visitor-globe {
+                width: min(105px, 32vw);
+                margin-top: 14px;
             }
 
             .nav-inner,
@@ -1222,9 +1245,10 @@
     <footer class="footer">
         <hr>
         <div>&copy; Shiu-Hong Kao | Last updated: Jun. 2026.</div>
-        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6c4505cf7064430482cdf6e1188681c0"}'></script>
+        <div class="visitor-globe">
+            <script type="text/javascript" id="mmvst_globe" src="https://mapmyvisitors.com/globe.js?d=zWRrJegNR9lsz-LWL7yjp5qW0N4Km9hxb5syBOFr1Vk"></script>
+        </div>
     </footer>
-
     <script>
         const themeToggle = document.querySelector(".theme-toggle");
         const themeIcon = themeToggle?.querySelector("i");
