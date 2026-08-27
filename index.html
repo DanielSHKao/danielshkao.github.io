@@ -542,21 +542,19 @@
             font-size: 13px;
             font-weight: 700;
             line-height: 1.35;
-            transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
         }
 
-        a.tag:hover,
-        a.tag:focus {
-            color: var(--on-link);
-            background: var(--link);
-            border-color: var(--link);
+        a.tag:hover {
+            color: var(--chip-ink);
+            background: var(--chip-bg);
+            border-color: var(--chip-border);
             text-decoration: none;
-            transform: translateY(-1px);
         }
 
         a.tag:focus-visible {
             outline: 3px solid color-mix(in srgb, var(--link) 35%, transparent);
             outline-offset: 2px;
+            text-decoration: none;
         }
 
         .news-list {
@@ -1084,7 +1082,7 @@
                 <div class="research-tags" aria-label="Research interests">
                     <a class="tag" href="https://arxiv.org/abs/2312.17432" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about video understanding (opens in a new tab)" title="Video Understanding with Large Language Models: A Survey"><i class="fa-solid fa-video" aria-hidden="true"></i> Video Understanding</a>
                     <a class="tag" href="https://arxiv.org/abs/2312.11562" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about LLM and MLLM reasoning (opens in a new tab)" title="A Survey of Reasoning with Foundation Models"><i class="fa-solid fa-brain" aria-hidden="true"></i> LLM/MLLM Reasoning</a>
-                    <a class="tag" href="https://arxiv.org/abs/2001.05566" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about image segmentation (opens in a new tab)" title="Image Segmentation Using Deep Learning: A Survey"><i class="fa-solid fa-object-group" aria-hidden="true"></i> Segmentation</a>
+                    <a class="tag" href="https://rua.ua.es/dspace/handle/10045/75753" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about image and video segmentation (opens in a new tab)" title="A Survey on Deep Learning Techniques for Image and Video Semantic Segmentation"><i class="fa-solid fa-object-group" aria-hidden="true"></i> Segmentation</a>
                     <a class="tag" href="https://arxiv.org/abs/1906.06543" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about 3D reconstruction (opens in a new tab)" title="Image-based 3D Object Reconstruction: State-of-the-Art and Trends in the Deep Learning Era"><i class="fa-solid fa-cube" aria-hidden="true"></i> 3D Reconstruction</a>
                 </div>
             </section>
