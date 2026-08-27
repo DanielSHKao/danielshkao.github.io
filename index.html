@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Shiu-Hong Kao">
-    <meta name="description" content="Personal academic homepage of Shiu-Hong Kao, a PhD student at NUS working on computer vision, video understanding, and LLM/VLM reasoning.">
+    <meta name="description" content="Personal academic homepage of Shiu-Hong Kao, a PhD student at NUS working on computer vision, video understanding, and LLM/MLLM reasoning.">
     <title>Shiu-Hong Kao</title>
     <script>
         (() => {
@@ -534,13 +534,29 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 5px 9px;
+            padding: 7px 11px;
             color: var(--chip-ink);
             background: var(--chip-bg);
             border: 1px solid var(--chip-border);
             border-radius: 7px;
             font-size: 13px;
             font-weight: 700;
+            line-height: 1.35;
+            transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+        }
+
+        a.tag:hover,
+        a.tag:focus {
+            color: var(--on-link);
+            background: var(--link);
+            border-color: var(--link);
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        a.tag:focus-visible {
+            outline: 3px solid color-mix(in srgb, var(--link) 35%, transparent);
+            outline-offset: 2px;
         }
 
         .news-list {
@@ -1050,12 +1066,12 @@
                 </div>
                 <div class="bio-panel" data-bio-panel="short">
                     <p>
-                        Shiu-Hong Kao is a first-year PhD student in <a href="https://www.comp.nus.edu.sg/programmes/pg/phdcs/" target="_blank" rel="noopener">Computer Science</a> in the <a href="https://cvml.comp.nus.edu.sg/" target="_blank" rel="noopener">CVML Group</a> at <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">National University of Singapore (NUS)</a>, advised by Prof. <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank" rel="noopener">Angela Yao</a>. His research focuses on <strong>video understanding</strong>, <strong>reasoning segmentation</strong>, and <strong>LLM/VLM reasoning</strong>.
+                        Shiu-Hong Kao is a first-year PhD student in <a href="https://www.comp.nus.edu.sg/programmes/pg/phdcs/" target="_blank" rel="noopener">Computer Science</a> in the <a href="https://cvml.comp.nus.edu.sg/" target="_blank" rel="noopener">CVML Group</a> at <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">National University of Singapore (NUS)</a>, advised by Prof. <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank" rel="noopener">Angela Yao</a>. His research focuses on <strong>video understanding</strong>, <strong>reasoning segmentation</strong>, and <strong>LLM/MLLM reasoning</strong>.
                     </p>
                 </div>
                 <div class="bio-panel" data-bio-panel="long" hidden>
                     <p>
-                        Shiu-Hong Kao is a first-year PhD student in <a href="https://www.comp.nus.edu.sg/programmes/pg/phdcs/" target="_blank" rel="noopener">Computer Science</a> in the <a href="https://cvml.comp.nus.edu.sg/" target="_blank" rel="noopener">CVML Group</a> at <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">National University of Singapore (NUS)</a>, advised by Prof. <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank" rel="noopener">Angela Yao</a>. His research sits at the intersection of deep learning and computer vision, with a focus on <strong>video understanding</strong>, <strong>reasoning segmentation</strong>, and <strong>LLM/VLM reasoning</strong>.
+                        Shiu-Hong Kao is a first-year PhD student in <a href="https://www.comp.nus.edu.sg/programmes/pg/phdcs/" target="_blank" rel="noopener">Computer Science</a> in the <a href="https://cvml.comp.nus.edu.sg/" target="_blank" rel="noopener">CVML Group</a> at <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">National University of Singapore (NUS)</a>, advised by Prof. <a href="https://www.comp.nus.edu.sg/~ayao/" target="_blank" rel="noopener">Angela Yao</a>. His research sits at the intersection of deep learning and computer vision, with a focus on <strong>video understanding</strong>, <strong>reasoning segmentation</strong>, and <strong>LLM/MLLM reasoning</strong>.
                     </p>
                     <p>
                         He received the <a href="https://cse.hkust.edu.hk/pg/" target="_blank" rel="noopener">M.Phil.</a> in Computer Science and Engineering from the Hong Kong University of Science and Technology (<a href="https://hkust.edu.hk/" target="_blank" rel="noopener">HKUST</a>) under the supervision of Prof. <a href="http://www.cs.ust.hk/~cktang" target="_blank" rel="noopener">Chi-Keung Tang</a>, collaborating closely with Prof. <a href="https://yuwingtai.github.io/" target="_blank" rel="noopener">Yu-Wing Tai</a> from <a href="https://home.dartmouth.edu/" target="_blank" rel="noopener">Dartmouth College</a>. He also conducted research in 3D reconstruction and interned in the Media Computing Group at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank" rel="noopener">Microsoft Research Asia</a>, working with Dr. <a href="https://pableeto.github.io/" target="_blank" rel="noopener">Xiao Li</a> and Dr. <a href="https://jingluw.github.io/" target="_blank" rel="noopener">Jinglu Wang</a>.
@@ -1066,10 +1082,10 @@
                     <p class="small-note"><strong>About his name:</strong> He goes by Daniel in daily life. His Chinese name, Shiu-Hong, is typically used only in official documents and publications. In mainland China, he is sometimes referred to as Xuhong, based on a different homophonic transliteration system.</p>
                 </div>
                 <div class="research-tags" aria-label="Research interests">
-                    <span class="tag"><i class="fa-solid fa-video"></i> Video Understanding</span>
-                    <span class="tag"><i class="fa-solid fa-brain"></i> LLM/VLM Reasoning</span>
-                    <span class="tag"><i class="fa-solid fa-object-group"></i> Segmentation</span>
-                    <span class="tag"><i class="fa-solid fa-cube"></i> 3D Reconstruction</span>
+                    <a class="tag" href="https://arxiv.org/abs/2312.17432" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about video understanding (opens in a new tab)" title="Video Understanding with Large Language Models: A Survey"><i class="fa-solid fa-video" aria-hidden="true"></i> Video Understanding</a>
+                    <a class="tag" href="https://arxiv.org/abs/2312.11562" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about LLM and MLLM reasoning (opens in a new tab)" title="A Survey of Reasoning with Foundation Models"><i class="fa-solid fa-brain" aria-hidden="true"></i> LLM/MLLM Reasoning</a>
+                    <a class="tag" href="https://arxiv.org/abs/2001.05566" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about image segmentation (opens in a new tab)" title="Image Segmentation Using Deep Learning: A Survey"><i class="fa-solid fa-object-group" aria-hidden="true"></i> Segmentation</a>
+                    <a class="tag" href="https://arxiv.org/abs/1906.06543" target="_blank" rel="noopener noreferrer" aria-label="Read a survey about 3D reconstruction (opens in a new tab)" title="Image-based 3D Object Reconstruction: State-of-the-Art and Trends in the Deep Learning Era"><i class="fa-solid fa-cube" aria-hidden="true"></i> 3D Reconstruction</a>
                 </div>
             </section>
 
