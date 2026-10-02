@@ -380,6 +380,11 @@
             object-fit: cover;
         }
 
+        .publication-media.media-contain img {
+            object-fit: contain;
+            background: #ffffff;
+        }
+
         .publication-media video {
             position: absolute;
             inset: 0;
@@ -580,6 +585,36 @@
                 <h2 class="year-heading">2026</h2>
 
                 <article class="publication">
+                    <div class="publication-media media-contain">
+                        <img src="src/rlcpr-teaser.png" alt="Posterior Concentration Phenomenon: reward variance decreases as reasoning length increases">
+                    </div>
+                    <div>
+                        <h3 class="pub-title">Rethinking Probability-Based Reinforcement Learning From Posterior Concentration</h3>
+                        <p class="authors"><span class="me">Shiu-Hong Kao</span>, Yubo Zhao, Zhenyu Tian, Pengzhan Sun, Yicong Li, Angela Yao</p>
+                        <p class="venue">arXiv preprint, 2026</p>
+                        <p class="abstract">We identify the Posterior Concentration Phenomenon in probability-rewarded long-horizon reasoning and propose RLCPR, a verifier-free RL framework that improves optimization stability, accuracy, and token efficiency.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2610.01458" target="_blank" rel="noopener">arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
+                    <div class="publication-media media-contain">
+                        <img src="src/rita-teaser.png" alt="Rita comparison showing improved consistency between reasoning and grounding answers">
+                    </div>
+                    <div>
+                        <h3 class="pub-title">Aligning Thoughts with Answers: Probability Rewards to Tame Thinking Drift</h3>
+                        <p class="authors">Pengzhan Sun*, <span class="me">Shiu-Hong Kao*</span>, Shijie Li, Yongyi Su, Junbin Xiao, Arjun Reddy Akula, Angela Yao</p>
+                        <p class="venue">arXiv preprint, 2026</p>
+                        <p class="abstract"><em>*Equal contribution.</em> We propose Rita, a reasoning-label-free RL paradigm that uses probability-based thinking and consistency rewards to reduce thinking drift in visual intention grounding.</p>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2609.39183" target="_blank" rel="noopener">arXiv</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="publication">
                     <div class="publication-media media-hover">
                         <img src="src/thinkvideo.png" alt="CoT-RVS teaser">
                         <video muted loop playsinline preload="metadata" aria-label="CoT-RVS video teaser">
@@ -775,7 +810,7 @@
 
     <footer class="footer">
         <hr>
-        <div>&copy; Shiu-Hong Kao | Last updated: Jun. 2026.</div>
+        <div>&copy; Shiu-Hong Kao | Last updated: Oct. 2026.</div>
     </footer>
 
     <script>
